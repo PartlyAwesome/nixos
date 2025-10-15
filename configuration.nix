@@ -114,6 +114,8 @@
   programs.firefox.enable = true;
   programs.adb.enable = true;
 
+  programs.ssh.startAgent = true;
+
   programs.steam = {
     enable = true;
 
