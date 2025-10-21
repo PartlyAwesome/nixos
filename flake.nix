@@ -37,7 +37,7 @@
     }:
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        nixos-x280 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./configuration.nix

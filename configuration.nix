@@ -19,12 +19,22 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
+  nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+  }) ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    download-buffer-size = 524288000;
+    #download-buffer-size = 524288000; not on lix
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-x280"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
