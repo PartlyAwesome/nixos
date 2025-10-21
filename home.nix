@@ -34,8 +34,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Hayley Sparham";
-    userEmail = "hayley@partlyaweso.me";
+    settings = {
+      user.name = "Hayley Sparham";
+      user.email = "hayley@partlyaweso.me";
+    };
 
     lfs.enable = true;
   };
