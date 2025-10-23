@@ -13,6 +13,7 @@
     obs-studio
     gimp
     nurl
+    catppuccin-kde
   ];
 
   home.sessionVariables = {
