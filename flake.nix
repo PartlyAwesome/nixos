@@ -26,53 +26,25 @@
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
+  outputs = { nixpkgs, ... }@inputs:
+    let
+      hostsPath = nixpkgs.lib.path.append ./hosts;
+      hosts = (builtins.attrNames (builtins.readDir (hostsPath "sys")));
+    in
     {
-      nixpkgs,
-      chaotic,
-      nixos-hardware,
-      catppuccin,
-      home-manager,
-      zen-browser,
-      auto-cpufreq,
-      ...
-    }:
-    {
-      nixosConfigurations = {
-        nixos-x280 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./configuration.nix
-
-            chaotic.nixosModules.default
-
-            nixos-hardware.nixosModules.lenovo-thinkpad-x280
-
-            catppuccin.nixosModules.catppuccin
-
-            auto-cpufreq.nixosModules.default
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "bkp";
-
-                users.hayley = {
-                  imports = [
-                    ./home.nix
-                    catppuccin.homeModules.catppuccin
-                    zen-browser.homeModules.default
-                  ];
-                };
-              };
-
-              # Optionally, use home-manager.extraSpecialArgs to pass
-              # arguments to home.nix
-            }
-          ];
-        };
-      };
+      nixosConfigurations = builtins.listToAttrs (
+        map (host: {
+          name = "nixos-${host}";
+          value = nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs hostsPath;
+            };
+            system = "x86_64-linux";
+            modules = [
+              (hostsPath "sys/${host}")
+            ];
+          };
+        }) hosts
+      );
     };
 }
