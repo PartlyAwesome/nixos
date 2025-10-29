@@ -5,6 +5,8 @@
     ./hardware-configuration.nix
   ];
 
+  boot.initrd.availableKernelModules = [ "usbhid" "sd_mod" ];
+
   swapDevices = [
     {
       device = "/var/lib/swapfile";

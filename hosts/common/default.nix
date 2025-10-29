@@ -30,5 +30,6 @@
     ./ssh.nix
     ./steam.nix
     ./session-vars.nix
+    ./catppuccin.nix
   ];
 }
