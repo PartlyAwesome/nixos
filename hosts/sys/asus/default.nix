@@ -1,11 +1,23 @@
-{ self, nixpkgs, ... }:
+{
+  self,
+  nixpkgs,
+  lib,
+  inputs,
+  hostsPath,
+  ...
+}:
 
 {
-  imports = [
-    ./hardware-configuration.nix
+  imports = lib.flatten [
+    ./hardware
+    (map hostsPath [
+      "common"
+      "common/laptop"
+      "common/keymap-asus.nix"
+    ])
   ];
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "nixos-asus";
+
   system.stateVersion = "25.05";
 }
