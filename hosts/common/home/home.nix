@@ -32,6 +32,7 @@
     bitwarden-desktop
     bitwarden-cli
     btop
+    moonlight-qt
   ];
 
   home.sessionVariables = {
