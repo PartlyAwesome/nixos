@@ -7,12 +7,14 @@
 }:
 
 {
-  imports = lib.flatten [
-    (with inputs; [
-      catppuccin.homeModules.catppuccin
-      zen-browser.homeModules.default
-    ])
+  imports = [
+    ./catppuccin.nix
     ./firefox.nix
+    ./zen.nix
+    ./session-vars.nix
+    ./alacritty.nix
+    ./vesktop.nix
+    ./git.nix
   ];
 
   home.username = "hayley";
@@ -34,58 +36,6 @@
     btop
     moonlight-qt
   ];
-
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
-  };
-
-  programs.alacritty = {
-    enable = true;
-  };
-
-  programs.vesktop = {
-    enable = true;
-  };
-
-  programs.zen-browser = {
-    enable = true;
-  };
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "Hayley Sparham";
-      user.email = "hayley@partlyaweso.me";
-    };
-
-    lfs.enable = true;
-  };
-
-  catppuccin = {
-    enable = true;
-    cache.enable = true;
-    flavor = "mocha";
-    accent = "pink";
-
-    # tty.enable = true;
-    alacritty.enable = true;
-    btop.enable = true;
-    chromium.enable = true;
-    element-desktop.enable = true;
-    firefox.enable = true;
-    foot.enable = true;
-    fzf.enable = true;
-    mangohud.enable = true;
-    mpv.enable = true;
-    nvim.enable = true;
-    obs.enable = true;
-    rofi.enable = true;
-    tmux.enable = true;
-    vesktop.enable = false;
-    vscode.profiles.default.enable = true;
-    zsh-syntax-highlighting.enable = true;
-  };
 
   home.stateVersion = "25.05";
 }
