@@ -28,7 +28,7 @@
     ./hayley.nix
     ./adb.nix
     ./ssh.nix
-    ./session-vars.nix
+    #./session-vars.nix
     ./catppuccin.nix
   ];
 }
