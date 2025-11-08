@@ -30,5 +30,6 @@
     ./ssh.nix
     #./session-vars.nix
     ./catppuccin.nix
+    ./locate.nix
   ];
 }
