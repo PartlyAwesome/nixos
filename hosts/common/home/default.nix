@@ -3,6 +3,8 @@
   nixpkgs,
   lib,
   inputs,
+  hostsPath,
+  host,
   ...
 }:
 
@@ -12,7 +14,7 @@
   ];
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs;
+      inherit inputs hostsPath host;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

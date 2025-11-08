@@ -1,6 +1,7 @@
 {
   self,
   nixpkgs,
+  pkgs,
   lib,
   inputs,
   hostsPath,
@@ -16,6 +17,10 @@
       "common/keymap-uk.nix"
     ])
   ];
+
+  #home.packages = with pkgs; [
+    #jellyfin-media-player
+  #];
 
   networking.hostName = "nixos-main";
 

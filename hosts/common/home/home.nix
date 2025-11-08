@@ -3,11 +3,16 @@
   pkgs,
   lib,
   inputs,
+  hostsPath,
+  host,
   ...
 }:
 
 {
-  imports = [
+  imports = lib.flatten [
+    (map hostsPath [
+      "sys/${host}/home"
+    ])
     ./catppuccin.nix
     ./firefox.nix
     ./zen.nix
