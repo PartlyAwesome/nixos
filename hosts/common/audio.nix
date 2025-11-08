@@ -1,4 +1,8 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
   security.rtkit.enable = true;
@@ -14,4 +18,8 @@
       jack.enable = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    carla
+  ];
 }
