@@ -20,6 +20,7 @@
     ./alacritty.nix
     ./vesktop.nix
     ./git.nix
+    ./flameshot.nix
   ];
 
   home.username = "hayley";
