@@ -5,6 +5,11 @@
 }:
 
 {
+  imports = [
+    ./qpwgraph.nix
+    ./pipewire-extra.nix
+  ];
+
   security.rtkit.enable = true;
   services = {
     pulseaudio.enable = false;
@@ -18,9 +23,4 @@
       jack.enable = true;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    carla
-    qpwgraph
-  ];
 }
