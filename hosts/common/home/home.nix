@@ -21,6 +21,7 @@
     ./vesktop.nix
     ./git.nix
     ./flameshot.nix
+    ./mpv.nix
   ];
 
   home.username = "hayley";

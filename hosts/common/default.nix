@@ -34,5 +34,8 @@
 
     # remove xterm
     ./rem-xterm.nix
+
+    # mount NAS
+    ./nfs.nix
   ];
 }
