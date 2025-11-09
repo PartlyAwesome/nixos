@@ -16,6 +16,7 @@
     ])
     (map hostsPath [
       "common/home"
+      "common/audio"
     ])
     ./bootloader.nix
     ./kernel.nix
@@ -24,7 +25,6 @@
     ./locale.nix
     ./kde.nix
     ./printing.nix
-    ./audio.nix
     ./hayley.nix
     ./adb.nix
     ./ssh.nix
