@@ -1,0 +1,41 @@
+@import url("https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/refs/heads/master/Themes/ServerColumns/ServerColumns.css");
+
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-pink.theme.css");
+
+:root {
+    --columns: 2;
+    --guildsize: 30;
+    --custom-emoji-size-emoji: 3.5rem;
+    --custom-emoji-size-jumbo-emoji: 4rem;
+    --custom-app-top-bar-height: 0px;
+}
+
+.container__040f0 {
+    top: -32px;
+}
+
+.avatar_c19a55 {
+    width: calc(var(--custom-message-margin-left-content-cozy) - 5px);
+    height: calc(var(--custom-message-margin-left-content-cozy) - 5px);
+    background-size: cover !important;
+    left: 2.5px;
+    border-radius: 5%;
+}
+
+.visual-refresh .buttons__74017 {
+    gap: 0;
+}
+
+.buttonWrapper__24af7 svg {
+    height: 20px;
+    width: 20px;
+}
+
+.avatarDecoration_c19a55 {
+    visibility: hidden;
+}
+
+.bar_c38106 {
+    height: 0px;
+    display: none !important;
+}
