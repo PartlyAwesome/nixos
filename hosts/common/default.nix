@@ -31,5 +31,8 @@
     #./session-vars.nix
     ./catppuccin.nix
     ./locate.nix
+
+    # remove xterm
+    ./rem-xterm.nix
   ];
 }
