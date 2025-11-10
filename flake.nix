@@ -25,7 +25,7 @@
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
     apollo-flake.url = "github:nil-andreas/apollo-flake";
-    nvf.url = "github:NotAShelf/nvf";
+    nvf.url = "github:NotAShelf/nvf/v0.8";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
