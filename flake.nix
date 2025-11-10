@@ -25,28 +25,29 @@
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
     apollo-flake.url = "github:nil-andreas/apollo-flake";
+    nvf.url = "github:NotAShelf/nvf";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, ... }@inputs:
-    let
-      hostsPath = nixpkgs.lib.path.append ./hosts;
-      hosts = (builtins.attrNames (builtins.readDir (hostsPath "sys")));
-      system = "x86_64-linux";
-    in
-    {
-      nixosConfigurations = builtins.listToAttrs (
-        map (host: {
-          name = "nixos-${host}";
-          value = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit inputs hostsPath host system;
-            };
-            system = system;
-            modules = [
-              (hostsPath "sys/${host}")
-            ];
+  outputs = {nixpkgs, ...} @ inputs: let
+    hostsPath = nixpkgs.lib.path.append ./hosts;
+    hosts = builtins.attrNames (builtins.readDir (hostsPath "sys"));
+    system = "x86_64-linux";
+  in {
+    nixosConfigurations = builtins.listToAttrs (
+      map (host: {
+        name = "nixos-${host}";
+        value = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs hostsPath host system;
           };
-        }) hosts
-      );
-    };
+          system = system;
+          modules = [
+            (hostsPath "sys/${host}")
+          ];
+        };
+      })
+      hosts
+    );
+  };
 }

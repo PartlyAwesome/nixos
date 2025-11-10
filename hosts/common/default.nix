@@ -21,6 +21,7 @@
     ./bootloader.nix
     ./kernel.nix
     ./lix.nix
+    ./nvim.nix
     ./networking.nix
     ./locale.nix
     ./kde.nix
