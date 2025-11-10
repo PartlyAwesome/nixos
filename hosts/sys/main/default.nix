@@ -15,12 +15,9 @@
       "common"
       "common/gaming"
       "common/keymap-uk.nix"
+      "common/apollo.nix"
     ])
   ];
-
-  #home.packages = with pkgs; [
-    #jellyfin-media-player
-  #];
 
   networking.hostName = "nixos-main";
 

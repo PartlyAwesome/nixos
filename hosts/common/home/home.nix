@@ -42,6 +42,7 @@
     bitwarden-cli
     btop
     moonlight-qt
+    fastfetch
   ];
 
   home.stateVersion = "25.05";

@@ -24,12 +24,14 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
+    apollo-flake.url = "github:nil-andreas/apollo-flake";
   };
 
   outputs = { nixpkgs, ... }@inputs:
     let
       hostsPath = nixpkgs.lib.path.append ./hosts;
       hosts = (builtins.attrNames (builtins.readDir (hostsPath "sys")));
+      system = "x86_64-linux";
     in
     {
       nixosConfigurations = builtins.listToAttrs (
@@ -37,9 +39,9 @@
           name = "nixos-${host}";
           value = nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit inputs hostsPath host;
+              inherit inputs hostsPath host system;
             };
-            system = "x86_64-linux";
+            system = system;
             modules = [
               (hostsPath "sys/${host}")
             ];
