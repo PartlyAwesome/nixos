@@ -21,6 +21,7 @@
     ./git.nix
     ./flameshot.nix
     ./mpv.nix
+    ./yt-dlp.nix
   ];
 
   home.username = "hayley";
