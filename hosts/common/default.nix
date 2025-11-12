@@ -5,9 +5,7 @@
   inputs,
   hostsPath,
   ...
-}:
-
-{
+}: {
   imports = lib.flatten [
     (with inputs; [
       chaotic.nixosModules.default

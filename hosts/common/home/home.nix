@@ -6,13 +6,12 @@
   hostsPath,
   host,
   ...
-}:
-
-{
+}: {
   imports = lib.flatten [
     (map hostsPath [
       "sys/${host}/home"
     ])
+    ./proton
     ./catppuccin.nix
     ./firefox.nix
     ./zen.nix
