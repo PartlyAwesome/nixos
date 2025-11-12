@@ -6,11 +6,10 @@
   inputs,
   hostsPath,
   ...
-}:
-
-{
+}: {
   imports = lib.flatten [
     ./hardware
+    #./3proxy.nix # proxy for fast ps4 downloads
     (map hostsPath [
       "common"
       "common/gaming"
