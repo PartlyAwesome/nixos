@@ -10,6 +10,7 @@
   imports = lib.flatten [
     ./hardware
     #./3proxy.nix # proxy for fast ps4 downloads
+    ./monitor-links.nix
     (map hostsPath [
       "common"
       "common/gaming"
