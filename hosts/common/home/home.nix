@@ -42,6 +42,7 @@
     btop
     moonlight-qt
     fastfetch
+    ffmpeg-full
   ];
 
   home.stateVersion = "25.05";
