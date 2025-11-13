@@ -4,13 +4,11 @@
   pkgs,
   system,
   ...
-}:
-
-{
+}: {
   imports = [
-    (inputs.apollo-flake.nixosModules."${system}".default)
+    (inputs.apollo-flake.nixosModules.${system}.default)
     ({pkgs, ...}: {
-      services.apollo.package = inputs.apollo-flake.packages."${system}".default;
+      services.apollo.package = inputs.apollo-flake.packages.${system}.default;
     })
   ];
 
