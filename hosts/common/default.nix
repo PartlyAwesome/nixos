@@ -30,6 +30,7 @@
     #./session-vars.nix
     ./catppuccin.nix
     ./locate.nix
+    ./obs.nix
 
     # remove xterm
     ./rem-xterm.nix
