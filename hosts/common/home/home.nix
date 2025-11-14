@@ -45,6 +45,7 @@
     fastfetch
     ffmpeg-full
     pinta
+    heroic
   ];
 
   home.stateVersion = "25.05";

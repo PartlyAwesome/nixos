@@ -1,9 +1,4 @@
-{
-  config,
-  ...
-}:
-
-{
+{config, ...}: {
   programs.vesktop = {
     enable = true;
     vencord = {
@@ -11,7 +6,7 @@
         catppuccin = ./catt+fixes.css;
       };
       settings = {
-        enabledThemes = [ "catppuccin.css" ];
+        enabledThemes = ["catppuccin.css"];
         plugins = {
           AlwaysAnimate.enabled = true;
           ClearURLs.enabled = true;
@@ -40,7 +35,10 @@
           NoProfileThemes.enabled = true;
           NoReplyMention.enabled = true;
           NoUnblockToJump.enabled = true;
-          OpenInApp.enabled = true;
+          OpenInApp = {
+            enabled = true;
+            epic = false;
+          };
           PlatformIndicators.enabled = true;
           RelationshipNotifier = {
             enabled = true;

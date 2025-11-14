@@ -1,7 +1,13 @@
-{self, ...}: {
+{
+  self,
+  lib,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
+
+  boot.kernelModules = ["v4l2loopback"];
 
   zramSwap.enable = true;
 
