@@ -46,6 +46,7 @@
     ffmpeg-full
     pinta
     heroic
+    rustdesk-flutter
   ];
 
   home.stateVersion = "25.05";
