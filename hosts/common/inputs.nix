@@ -14,7 +14,7 @@
     };
     dfkConfig = pkgs.writeText "dual-function-keys.yaml" (builtins.toJSON {
       MAPPINGS = [
-        keyMappings
+        (keyMappings // {HOLD_START = "BEFORE_CONSUME";})
       ];
     });
   in {
