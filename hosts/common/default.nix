@@ -38,10 +38,10 @@
     # mount NAS
     ./nfs.nix
 
-    # input remapper to disable mouse sidebuttons.. need to find a better solution!
-    ./input-remapper.nix
-
     # fonts!
     ./fonts.nix
+
+    # input remapping
+    ./inputs.nix
   ];
 }
