@@ -11,7 +11,7 @@
     (map hostsPath [
       "sys/${host}/home"
     ])
-    ./proton
+    #./proton
     ./catppuccin.nix
     ./firefox.nix
     ./zen.nix
@@ -37,7 +37,6 @@
     gimp
     nurl
     catppuccin-kde
-    rustdesk-flutter
     bitwarden-desktop
     bitwarden-cli
     btop
@@ -46,7 +45,7 @@
     ffmpeg-full
     pinta
     heroic
-    rustdesk-flutter
+    #rustdesk-flutter
   ];
 
   home.stateVersion = "25.05";
