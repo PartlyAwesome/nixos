@@ -2,11 +2,11 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   nixpkgs.overlays = [
     (final: prev: {
-      inherit
-        (prev.lixPackageSets.stable)
+      inherit (prev.lixPackageSets.stable)
         nixpkgs-review
         nix-eval-jobs
         nix-fast-build
@@ -18,7 +18,10 @@
   nix.package = pkgs.lixPackageSets.stable.lix;
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     connect-timeout = 30;
     min-free = 128000000;
     max-free = 1000000000;
