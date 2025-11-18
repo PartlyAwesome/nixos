@@ -6,12 +6,13 @@
   hostsPath,
   host,
   ...
-}: {
+}:
+{
   imports = lib.flatten [
     (map hostsPath [
       "sys/${host}/home"
     ])
-    #./proton
+    ./proton
     ./catppuccin.nix
     ./firefox.nix
     ./zen.nix
@@ -45,7 +46,7 @@
     ffmpeg-full
     pinta
     heroic
-    #rustdesk-flutter
+    rustdesk-flutter
   ];
 
   home.stateVersion = "25.05";
