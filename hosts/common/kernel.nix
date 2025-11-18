@@ -2,6 +2,10 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  services.scx = {
+    enable = true;
+  };
 }
