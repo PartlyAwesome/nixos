@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -10,9 +11,11 @@
       roboto-flex
     ];
 
+    fontDir.enable = true;
+
     fontconfig.defaultFonts = {
-      sansSerif = ["Roboto"];
-      monospace = ["Roboto Mono"];
+      sansSerif = [ "Roboto" ];
+      monospace = [ "Roboto Mono" ];
     };
   };
 }

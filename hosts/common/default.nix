@@ -5,7 +5,8 @@
   inputs,
   hostsPath,
   ...
-}: {
+}:
+{
   imports = lib.flatten [
     (with inputs; [
       chaotic.nixosModules.default
@@ -31,6 +32,7 @@
     ./catppuccin.nix
     ./locate.nix
     ./obs.nix
+    #./flatpak.nix
 
     # remove xterm
     ./rem-xterm.nix
