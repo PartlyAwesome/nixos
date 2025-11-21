@@ -36,6 +36,17 @@
       hostsPath = lib.path.append ./hosts;
       hosts = builtins.attrNames (builtins.readDir (hostsPath "sys"));
       optionally = path: lib.optional (builtins.pathExists path) path;
+      setValueForUsers =
+        value:
+        (builtins.listToAttrs (
+          map (user: {
+            name = "${user}";
+            value = value;
+          }) users
+        ));
+      users = [
+        "hayley"
+      ];
       system = "x86_64-linux";
     in
     {
@@ -48,6 +59,8 @@
                 inputs
                 hostsPath
                 optionally
+                setValueForUsers
+                users
                 host
                 system
                 ;
