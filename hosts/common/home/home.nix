@@ -12,7 +12,6 @@
     (map hostsPath [
       "sys/${host}/home"
     ])
-    ./shell
     ./proton
     ./catppuccin.nix
     ./firefox.nix

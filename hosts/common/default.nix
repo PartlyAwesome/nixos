@@ -4,6 +4,8 @@
   lib,
   inputs,
   hostsPath,
+  optionally,
+  users,
   ...
 }:
 {
@@ -15,7 +17,9 @@
     (map hostsPath [
       "common/home"
       "common/audio"
+      "common/shell"
     ])
+    (map (user: optionally (hostsPath "users/${user}.nix")) users)
     ./bootloader.nix
     ./kernel.nix
     ./lix.nix
@@ -24,7 +28,6 @@
     ./locale.nix
     ./kde.nix
     ./printing.nix
-    ./hayley.nix
     ./adb.nix
     ./ssh.nix
     #./session-vars.nix
