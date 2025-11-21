@@ -49,6 +49,7 @@
       nix.enable = true;
       ts.enable = true;
       rust.enable = true;
+      bash.enable = true;
     };
   };
 }

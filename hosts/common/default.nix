@@ -11,7 +11,6 @@
     (with inputs; [
       chaotic.nixosModules.default
       catppuccin.nixosModules.default
-      home-manager.nixosModules.home-manager
     ])
     (map hostsPath [
       "common/home"
