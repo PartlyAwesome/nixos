@@ -14,8 +14,9 @@
     fontDir.enable = true;
 
     fontconfig.defaultFonts = {
-      sansSerif = [ "Roboto" ];
-      monospace = [ "Roboto Mono" ];
+      serif = [ "Roboto Flex" ];
+      sansSerif = [ "Roboto Flex" ];
+      monospace = [ "RobotoMono Nerd Font" ];
     };
   };
 }
