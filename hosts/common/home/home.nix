@@ -1,8 +1,6 @@
 {
-  config,
   pkgs,
   lib,
-  inputs,
   hostsPath,
   host,
   ...
@@ -23,6 +21,7 @@
     ./flameshot.nix
     ./mpv.nix
     ./yt-dlp.nix
+    ./rga.nix
   ];
 
   # to access the user's name, use config.home.username!
