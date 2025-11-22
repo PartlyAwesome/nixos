@@ -25,8 +25,7 @@
     ./yt-dlp.nix
   ];
 
-  home.username = "hayley";
-  home.homeDirectory = "/home/hayley";
+  # to access the user's name, use config.home.username!
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [

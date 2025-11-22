@@ -5,6 +5,7 @@
   inputs,
   hostsPath,
   host,
+  setValueForUsers,
   ...
 }:
 
@@ -19,6 +20,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bkp";
-    users.hayley.imports = [ ./home.nix ];
+    users = setValueForUsers { imports = [ ./home.nix ]; };
   };
 }
