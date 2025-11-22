@@ -11,6 +11,10 @@
         lines = 70;
         columns = 250;
       };
+      font.offset = {
+        x = 0;
+        y = -3;
+      };
     };
   };
 }
