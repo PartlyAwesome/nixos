@@ -233,6 +233,26 @@
         "type": "github"
       }
     },
+    "mio-pkgs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763905308,
+        "narHash": "sha256-HxhX4Ypm0QJAK0ruErbG8lRqwbIg7B+5MW3Uq4CI5oU=",
+        "owner": "mio-19",
+        "repo": "nurpkgs",
+        "rev": "cd550429bf8e2e30d8f29dcdca61831f7935b05a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mio-19",
+        "repo": "nurpkgs",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1758834834,
@@ -399,6 +419,7 @@
         "catppuccin": "catppuccin",
         "chaotic": "chaotic",
         "home-manager": "home-manager_2",
+        "mio-pkgs": "mio-pkgs",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nvf": "nvf",

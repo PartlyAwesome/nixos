@@ -6,6 +6,7 @@
   hostsPath,
   host,
   setValueForUsers,
+  system,
   ...
 }:
 
@@ -15,7 +16,12 @@
   ];
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs hostsPath host;
+      inherit
+        inputs
+        hostsPath
+        host
+        system
+        ;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
