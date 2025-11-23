@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "posy-cursors-scalable";
-  version = "1.3";
+  version = "v1.3";
 
   src = fetchFromGitHub {
     owner = "Morxemplum";
