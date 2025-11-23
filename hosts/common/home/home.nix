@@ -10,6 +10,7 @@
     (map hostsPath [
       "sys/${host}/home"
     ])
+    ./cursor.nix
     ./proton
     ./catppuccin.nix
     ./firefox.nix

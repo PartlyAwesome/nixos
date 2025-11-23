@@ -31,5 +31,6 @@
     vesktop.enable = false;
     vscode.profiles.default.enable = true;
     zsh-syntax-highlighting.enable = true;
+    cursors.enable = false;
   };
 }
