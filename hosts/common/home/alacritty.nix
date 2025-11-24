@@ -4,6 +4,12 @@
 }:
 
 {
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = [
+      "Alacritty.desktop"
+    ];
+  };
   programs.alacritty = {
     enable = true;
     settings = {
