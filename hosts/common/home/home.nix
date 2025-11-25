@@ -4,8 +4,7 @@
   hostsPath,
   host,
   ...
-}:
-{
+}: {
   imports = lib.flatten [
     (map hostsPath [
       "sys/${host}/home"
@@ -23,6 +22,7 @@
     ./mpv.nix
     ./yt-dlp.nix
     ./rga.nix
+    ./bat.nix
   ];
 
   # to access the user's name, use config.home.username!
