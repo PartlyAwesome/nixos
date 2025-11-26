@@ -30,6 +30,7 @@
 
   home.packages = with pkgs; [
     chromium
+    google-chrome
     #jellyfin-media-player
     wget
     unzip

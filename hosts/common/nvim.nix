@@ -3,13 +3,12 @@
   inputs,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = with inputs; [
     nvf.nixosModules.default
   ];
 
+  environment.variables.EDITOR = "nvim";
   programs.nvf.enable = true;
   programs.nvf.settings.vim = {
     viAlias = true;
