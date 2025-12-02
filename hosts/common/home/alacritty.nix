@@ -1,16 +1,4 @@
 {...}: {
-  xdg.terminal-exec = {
-    enable = true;
-    settings.default = [
-      "Alacritty.desktop"
-    ];
-  };
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "x-scheme-handler/terminal" = "Alacritty.desktop";
-    };
-  };
   programs.alacritty = {
     enable = true;
     settings = {
