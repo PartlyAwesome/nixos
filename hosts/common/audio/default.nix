@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
-
-{
+{...}: {
   imports = [
     ./qpwgraph.nix
     ./pipewire-extra.nix

@@ -9,7 +9,7 @@
             "node.name" = "my-sink";
             "media.class" = "Audio/Sink";
             "audio.position" = "FL,FR";
-            "monitor.channel-values" = "true";
+            "monitor.channel-volumes" = "true";
             "monitor.passthrough" = "true";
             "adapter.auto-port-config" = {
               "mode" = "dsp";
@@ -30,10 +30,15 @@
             "audio.channels" = "2";
             "audio.position" = "FL,FR";
             "capture.props" = {
-              "node.name" = "HD6XX EQ Input";
+              "node.name" = "hd6xx-eq";
+              "node.autoconnect" = "false";
+              "node.passive" = "true";
+              "monitor.passthrough" = "false";
             };
             "playback.props" = {
-              "node.name" = "HD6XX EQ Output";
+              "node.name" = "hd6xx-eq";
+              "node.autoconnect" = "false";
+              "node.passive" = "true";
             };
           };
         }
