@@ -1,12 +1,10 @@
 {
   config,
-  nixpkgs,
   pkgs,
   inputs,
   system,
   ...
 }:
-
 #let
 #  ignoreVulnerabilities =
 #    pkg:
@@ -27,12 +25,15 @@
   #qtwebengine = ignoreVulnerabilities pkgs."qtwebengine-5.15.19";
   #};
 
-  home.packages = with pkgs; [
-    #jellyfin-media-player
-    #jmp
-    #(jellyfin-media-player.override {
-    #qtwebengine = ignoreVulnerabilities pkgs.libsForQt5.qt5.qtwebengine;
-    #})
-    inputs.mio-pkgs.packages.${system}.jellyfin-media-player
-  ];
+  home.packages =
+    #with pkgs;
+    [
+      #jellyfin-media-player
+      #jmp
+      #(jellyfin-media-player.override {
+      #qtwebengine = ignoreVulnerabilities pkgs.libsForQt5.qt5.qtwebengine;
+      #})
+      #inputs.mio-pkgs.packages.${system}.jellyfin-media-player
+      inputs.nixpkgs-jelly.legacyPackages.${system}.jellyfin-media-player
+    ];
 }
