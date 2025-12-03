@@ -1,14 +1,11 @@
 {
-  self,
-  nixpkgs,
   lib,
   inputs,
   hostsPath,
   optionally,
   users,
   ...
-}:
-{
+}: {
   imports = lib.flatten [
     (with inputs; [
       chaotic.nixosModules.default

@@ -1,13 +1,8 @@
 {
-  self,
-  nixpkgs,
   lib,
-  inputs,
   hostsPath,
   ...
-}:
-
-{
+}: {
   imports = lib.flatten [
     ./hardware
     (map hostsPath [

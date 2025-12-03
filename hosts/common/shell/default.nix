@@ -1,10 +1,8 @@
 {
-  config,
   pkgs,
   setValueForUsers,
   ...
-}:
-{
+}: {
   programs.bash.interactiveShellInit = builtins.readFile (
     pkgs.replaceVars ./startFish.sh {
       ps = "${pkgs.procps}/bin/ps";

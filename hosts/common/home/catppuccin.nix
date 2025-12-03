@@ -1,10 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}:
-
-{
+{inputs, ...}: {
   imports = with inputs; [
     catppuccin.homeModules.catppuccin
   ];

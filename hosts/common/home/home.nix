@@ -12,7 +12,7 @@
     ./cursor.nix
     ./proton
     ./catppuccin.nix
-    ./firefox.nix
+    #./firefox.nix
     ./zen.nix
     #./session-vars.nix
     ./alacritty.nix

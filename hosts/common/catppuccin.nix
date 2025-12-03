@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   catppuccin = {
     enable = true;

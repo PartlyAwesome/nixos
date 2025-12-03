@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # probably unnecessary?
   hardware.uinput.enable = true;
 

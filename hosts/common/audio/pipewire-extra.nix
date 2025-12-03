@@ -1,4 +1,4 @@
-{...}: {
+{
   services.pipewire.extraConfig.pipewire = {
     "10-null-sink" = {
       "context.objects" = [

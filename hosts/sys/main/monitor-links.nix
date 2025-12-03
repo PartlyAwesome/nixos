@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   networking.networkmanager.dispatcherScripts = [
     {
       source =

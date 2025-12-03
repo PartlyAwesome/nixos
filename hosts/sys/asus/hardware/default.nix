@@ -1,16 +1,14 @@
-{ self, ... }:
-
 {
   imports = [
     ./hardware-configuration.nix
   ];
 
-  boot.initrd.availableKernelModules = [ "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = ["usbhid" "sd_mod"];
 
   zramSwap.enable = true;
 
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
@@ -23,4 +21,3 @@
     powerOnBoot = true;
   };
 }
-  

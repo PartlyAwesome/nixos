@@ -1,13 +1,8 @@
 {
-  self,
-  nixpkgs,
-  pkgs,
   lib,
-  inputs,
   hostsPath,
   ...
-}:
-{
+}: {
   imports = lib.flatten [
     ./hardware
     #./3proxy.nix # proxy for fast ps4 downloads
