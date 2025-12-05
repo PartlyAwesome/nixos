@@ -13,6 +13,8 @@
     viAlias = true;
     vimAlias = true;
 
+    searchCase = "smart";
+
     theme = {
       enable = true;
       name = "catppuccin";
@@ -48,6 +50,12 @@
       ts.enable = true;
       rust.enable = true;
       bash.enable = true;
+    };
+
+    binds = {
+      cheatsheet.enable = true;
+      hardtime-nvim.enable = true;
+      whichKey.enable = true;
     };
   };
 }
