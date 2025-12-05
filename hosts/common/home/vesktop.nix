@@ -1,4 +1,21 @@
-{
+{inputs, ...}: {
+  imports = [
+    inputs.nixcord.homeModules.nixcord
+  ];
+  programs.nixcord = {
+    enable = true;
+    discord.vencord.enable = false;
+    discord.equicord.enable = true;
+    equibop.enable = true;
+    config = {
+      themes = {
+        catppuccin = ./catt+fixes.css;
+      };
+      enabledThemes = ["catppuccin.css"];
+      plugins = {
+      };
+    };
+  };
   programs.vesktop = {
     enable = true;
     vencord = {
