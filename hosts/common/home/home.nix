@@ -23,6 +23,7 @@
     ./yt-dlp.nix
     ./rga.nix
     ./bat.nix
+    ./qbit.nix
   ];
 
   # to access the user's name, use config.home.username!
