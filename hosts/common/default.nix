@@ -7,10 +7,6 @@
   ...
 }: {
   imports = lib.flatten [
-    (with inputs; [
-      chaotic.nixosModules.default
-      catppuccin.nixosModules.default
-    ])
     (map hostsPath [
       "common/home"
       "common/audio"
