@@ -24,6 +24,7 @@
     ./rga.nix
     ./bat.nix
     ./qbit.nix
+    ./zip.nix
   ];
 
   # to access the user's name, use config.home.username!

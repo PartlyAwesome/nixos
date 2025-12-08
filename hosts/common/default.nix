@@ -44,5 +44,11 @@
 
     # input remapping
     ./inputs.nix
+
+    # appimages
+    ./appimage.nix
+
+    # udev rules
+    ./udev.nix
   ];
 }
