@@ -44,6 +44,10 @@
         }
       ];
     };
+    "20-filter-chain" = {
+      "context.modules" = [
+      ];
+    };
     #"20-link-null-sink" = {
     #  "context.objects" = [
     #    {
