@@ -1,18 +1,16 @@
 {
   lib,
-  inputs,
   hostsPath,
   optionally,
-  users,
+  user,
   ...
 }: {
   imports = lib.flatten [
     (map hostsPath [
-      "common/home"
       "common/audio"
       "common/shell"
+      "users/${user}.nix"
     ])
-    (map (user: optionally (hostsPath "users/${user}.nix")) users)
     ./bootloader.nix
     ./kernel.nix
     ./lix.nix

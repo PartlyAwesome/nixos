@@ -1,6 +1,6 @@
 {
   pkgs,
-  setValueForUsers,
+  user,
   ...
 }: {
   programs.bash.interactiveShellInit = builtins.readFile (
@@ -9,10 +9,8 @@
       fish = "${pkgs.fish}/bin/fish";
     }
   );
-  home-manager.users = setValueForUsers {
-    programs.fish = {
-      enable = true;
-      interactiveShellInit = "clear;fastfetch";
-    };
+  home-manager.users.${user}.programs.fish = {
+    enable = true;
+    interactiveShellInit = "clear;fastfetch";
   };
 }

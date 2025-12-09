@@ -37,17 +37,21 @@
     hostsPath = lib.path.append ./hosts;
     hosts = builtins.attrNames (builtins.readDir (hostsPath "sys"));
     optionally = path: lib.optional (builtins.pathExists path) path;
-    setValueForUsers = value: (builtins.listToAttrs (
-      map (user: {
-        name = "${user}";
-        value = value;
-      })
-      users
-    ));
-    users = [
-      "hayley"
-    ];
+    user = "hayley";
     system = "x86_64-linux";
+    setupHomeManager = path: {
+      extraSpecialArgs = {
+        inherit
+          inputs
+          hostsPath
+          system
+          ;
+      };
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      backupFileExtension = "bkp";
+      users.${user}.imports = [path (hostsPath "common/home")];
+    };
   in {
     nixosConfigurations = builtins.listToAttrs (
       map (host: {
@@ -58,10 +62,10 @@
               inputs
               hostsPath
               optionally
-              setValueForUsers
-              users
+              user
               host
               system
+              setupHomeManager
               ;
           };
           system = system;

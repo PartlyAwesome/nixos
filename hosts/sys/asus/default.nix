@@ -5,6 +5,7 @@
 }: {
   imports = lib.flatten [
     ./hardware
+    ./home
     (map hostsPath [
       "common"
       "common/laptop"
