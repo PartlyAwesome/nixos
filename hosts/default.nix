@@ -14,8 +14,8 @@
     "hayley"
   ];
   system = "x86_64-linux";
-in {
-  nixosConfigurations = builtins.listToAttrs (
+in
+  builtins.listToAttrs (
     map (host: {
       name = "nixos-${host}";
       value = lib.nixosSystem {
@@ -37,5 +37,4 @@ in {
       };
     })
     hosts
-  );
-}
+  )

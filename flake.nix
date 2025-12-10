@@ -32,5 +32,7 @@
     nixcord.url = "github:FlameFlag/nixcord";
   };
 
-  outputs = import ./hosts;
+  outputs = inputs: {
+    nixosConfigurations = import ./hosts inputs;
+  };
 }
