@@ -15,6 +15,11 @@
 
     searchCase = "smart";
 
+    clipboard = {
+      enable = true;
+      providers.wl-copy.enable = true;
+    };
+
     theme = {
       enable = true;
       name = "catppuccin";

@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   setValueForUsers,
   ...
@@ -10,9 +11,14 @@
     }
   );
   home-manager.users = setValueForUsers {
+    home.shellAliases = config.environment.shellAliases;
     programs.fish = {
       enable = true;
       interactiveShellInit = "clear;fastfetch";
     };
+  };
+  environment.shellAliases = {
+    config = "cd /etc/nixos";
+    cat = "bat --paging=never";
   };
 }
