@@ -1,18 +1,11 @@
 {
-  lib,
-  inputs,
-  hostsPath,
-  optionally,
-  users,
-  ...
-}: {
-  imports = lib.flatten [
-    (map hostsPath [
-      "common/home"
-      "common/audio"
-      "common/shell"
-    ])
-    (map (user: optionally (hostsPath "users/${user}.nix")) users)
+  imports = [
+    # pipewire things
+    ./audio
+
+    # fish and the like
+    ./shell
+
     ./bootloader.nix
     ./kernel.nix
     ./lix.nix

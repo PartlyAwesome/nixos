@@ -6,7 +6,6 @@
   imports = lib.flatten [
     ./hardware
     (map hostsPath [
-      "common"
       "common/laptop"
       "common/keymap-asus.nix"
     ])

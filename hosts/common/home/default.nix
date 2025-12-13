@@ -1,26 +1,46 @@
-{
-  inputs,
-  hostsPath,
-  host,
-  setValueForUsers,
-  system,
-  ...
-}: {
-  imports = with inputs; [
-    home-manager.nixosModules.home-manager
+{pkgs, ...}: {
+  imports = [
+    ./cursor.nix
+    ./proton
+    ./catppuccin.nix
+    #./firefox.nix
+    ./zen.nix
+    #./session-vars.nix
+    ./alacritty.nix
+    ./vesktop.nix
+    ./git.nix
+    ./flameshot.nix
+    ./mpv.nix
+    ./yt-dlp.nix
+    ./rga.nix
+    ./bat.nix
+    ./qbit.nix
+    ./zip.nix
   ];
-  home-manager = {
-    extraSpecialArgs = {
-      inherit
-        inputs
-        hostsPath
-        host
-        system
-        ;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "bkp";
-    users = setValueForUsers {imports = [./home.nix];};
-  };
+
+  # to access the user's name, use config.home.username!
+  programs.home-manager.enable = true;
+
+  home.packages = with pkgs; [
+    chromium
+    google-chrome
+    #jellyfin-media-player
+    wget
+    unzip
+    obs-studio
+    gimp
+    nurl
+    catppuccin-kde
+    bitwarden-desktop
+    bitwarden-cli
+    btop
+    moonlight-qt
+    fastfetch
+    ffmpeg-full
+    pinta
+    heroic
+    rustdesk-flutter
+  ];
+
+  home.stateVersion = "25.05";
 }

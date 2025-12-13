@@ -1,6 +1,6 @@
 {
   inputs,
-  system,
+  pkgs,
   ...
 }:
 #let
@@ -32,6 +32,6 @@
       #qtwebengine = ignoreVulnerabilities pkgs.libsForQt5.qt5.qtwebengine;
       #})
       #inputs.mio-pkgs.packages.${system}.jellyfin-media-player
-      inputs.nixpkgs-jelly.legacyPackages.${system}.jellyfin-media-player
+      inputs.nixpkgs-jelly.legacyPackages.${pkgs.stdenv.hostPlatform.system}.jellyfin-media-player
     ];
 }

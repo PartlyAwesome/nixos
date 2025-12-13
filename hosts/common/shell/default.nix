@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  setValueForUsers,
+  user,
   ...
 }: {
   programs.bash.interactiveShellInit = builtins.readFile (
@@ -10,7 +10,7 @@
       fish = "${pkgs.fish}/bin/fish";
     }
   );
-  home-manager.users = setValueForUsers {
+  home-manager.users.${user} = {
     home.shellAliases = config.environment.shellAliases;
     programs.fish = {
       enable = true;
@@ -20,5 +20,6 @@
   environment.shellAliases = {
     config = "cd /etc/nixos";
     cat = "bat --paging=never";
+    brg = "batgrep --paging=never";
   };
 }
