@@ -1,10 +1,8 @@
-{
-  host,
-  user,
-}: {
+{modules}: {
+  lib,
   inputs,
   hostsPath,
-  system,
+  user,
   ...
 }: {
   imports = with inputs; [
@@ -15,15 +13,14 @@
       inherit
         inputs
         hostsPath
-        system
         ;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bkp";
-    users.${user}.imports = [
+    users.${user}.imports = lib.flatten [
       ./common/home
-      ./sys/${host}/home
+      modules
     ];
   };
 }
