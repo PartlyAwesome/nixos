@@ -20,6 +20,7 @@ in
       host:
         setupHost host
         [
+          ./common
           ./sys/${host}
           (import ./homeModule.nix {
             host = host;
