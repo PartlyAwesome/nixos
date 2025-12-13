@@ -1,9 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  imports = lib.flatten [
+{pkgs, ...}: {
+  imports = [
     ./cursor.nix
     ./proton
     ./catppuccin.nix
