@@ -21,5 +21,6 @@
     config = "cd /etc/nixos";
     cat = "bat --paging=never";
     brg = "batgrep --paging=never";
+    pb = "prettybat --paging=never";
   };
 }
