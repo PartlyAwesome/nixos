@@ -16,6 +16,7 @@
     ./bat.nix
     ./qbit.nix
     ./zip.nix
+    ./btop.nix
   ];
 
   # to access the user's name, use config.home.username!
@@ -33,7 +34,6 @@
     catppuccin-kde
     bitwarden-desktop
     bitwarden-cli
-    btop
     moonlight-qt
     fastfetch
     ffmpeg-full
