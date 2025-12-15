@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   user,
@@ -6,8 +7,8 @@
 }: {
   programs.bash.interactiveShellInit = builtins.readFile (
     pkgs.replaceVars ./startFish.sh {
-      ps = "${pkgs.procps}/bin/ps";
-      fish = "${pkgs.fish}/bin/fish";
+      ps = lib.getExe' pkgs.procps "ps";
+      fish = lib.getExe pkgs.fish;
     }
   );
   home-manager.users.${user} = {
