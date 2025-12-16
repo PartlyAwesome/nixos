@@ -17,6 +17,7 @@
     ./qbit.nix
     ./zip.nix
     ./btop.nix
+    ./jellyfin.nix
   ];
 
   # to access the user's name, use config.home.username!
@@ -25,7 +26,6 @@
   home.packages = with pkgs; [
     chromium
     google-chrome
-    #jellyfin-media-player
     wget
     unzip
     obs-studio
