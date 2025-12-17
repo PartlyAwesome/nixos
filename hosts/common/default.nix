@@ -39,5 +39,8 @@
 
     # udev rules
     ./udev.nix
+
+    # localsend
+    ./localsend.nix
   ];
 }
