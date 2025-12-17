@@ -29,6 +29,8 @@
     nvf.url = "github:NotAShelf/nvf/v0.8";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     nixcord.url = "github:FlameFlag/nixcord";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {

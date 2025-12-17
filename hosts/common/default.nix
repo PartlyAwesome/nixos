@@ -39,5 +39,8 @@
 
     # udev rules
     ./udev.nix
+
+    # secrets management
+    ./secrets
   ];
 }
