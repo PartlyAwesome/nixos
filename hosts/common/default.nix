@@ -42,5 +42,8 @@
 
     # secrets management
     ./secrets
+
+    # localsend
+    ./localsend.nix
   ];
 }
