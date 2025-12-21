@@ -14,7 +14,7 @@
     top: -32px;
 }
 
-.avatar_c19a55 {
+.c19a557985eb7793-avatar {
     width: calc(var(--custom-message-margin-left-content-cozy) - 5px);
     height: calc(var(--custom-message-margin-left-content-cozy) - 5px);
     background-size: cover !important;
@@ -31,7 +31,7 @@
     width: 20px;
 }
 
-.avatarDecoration_c19a55 {
+.c19a557985eb7793-avatarDecoration {
     visibility: hidden;
 }
 
