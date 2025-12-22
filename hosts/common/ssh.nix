@@ -1,12 +1,10 @@
 {
-  lib,
+  config,
   hostsPath,
   pkgs,
-  config,
   user,
   ...
 }: let
-  port = lib.toIntBase10 (builtins.readFile (hostsPath "common/secrets/openssh-port.secret"));
   x280-key-file = pkgs.writeText "x280.pub" (builtins.readFile (hostsPath "keys/x280.pub"));
   main-key-file = pkgs.writeText "main.pub" (builtins.readFile (hostsPath "keys/main.pub"));
 in {
@@ -20,7 +18,7 @@ in {
   services.openssh = {
     enable = true;
     ports = [
-      port
+      config.secrets.sshPort
     ];
     settings = {
       PasswordAuthentication = false;

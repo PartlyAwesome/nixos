@@ -1,5 +1,0 @@
-[config]
-"hosts/common/secrets/openssh-port.secret" = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIISaoLof5e/v2kSlHQ7rOtqFaq+WbkifR4toifPM98J8 hayley@nixos",
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVZICXLPEflZSYCWZDzmnEOYhrhmSOzaD8uS61elIRa hayley@nixos",
-]

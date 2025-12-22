@@ -1,5 +1,11 @@
 {
   imports = [
+    # nix settings
+    ./settings.nix
+
+    # substitutors
+    ./subs.nix
+
     # pipewire things
     ./audio
 

@@ -20,6 +20,7 @@ in
       host:
         setupHost host
         [
+          inputs.nixprv.nixosModules.default
           ./common
           ./sys/${host}
           (import ./homeModule.nix {

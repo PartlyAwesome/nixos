@@ -328,6 +328,26 @@
         "type": "github"
       }
     },
+    "nixprv": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766412171,
+        "narHash": "sha256-GCS2IPWz7nzssEC6Ryf8wBOjL08lqf+cIbZQs49cliw=",
+        "ref": "refs/heads/master",
+        "rev": "cbbde05b06f90911d646bd0e5f2391f5b1b3d850",
+        "revCount": 4,
+        "type": "git",
+        "url": "ssh://git@github.com/PartlyAwesome/nixprv.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/PartlyAwesome/nixprv.git"
+      }
+    },
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -362,6 +382,7 @@
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
+        "nixprv": "nixprv",
         "nvf": "nvf",
         "sops-nix": "sops-nix",
         "zen-browser": "zen-browser"
