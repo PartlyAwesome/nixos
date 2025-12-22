@@ -6,26 +6,46 @@
     # substitutors
     ./subs.nix
 
+    # lix
+    ./lix.nix
+
+    # nh
+    ./nh.nix
+
+    # common system stuff
+    ./bootloader.nix
+    ./kernel.nix
+    ./networking.nix
+    ./locale.nix
+    ./printing.nix
+
     # pipewire things
     ./audio
 
     # fish and the like
     ./shell
 
-    ./bootloader.nix
-    ./kernel.nix
-    ./lix.nix
+    # neovim
     ./nvim.nix
-    ./networking.nix
-    ./locale.nix
+
+    # desktop environment
     ./kde.nix
-    ./printing.nix
+
+    # phone adb
     ./adb.nix
+
+    # ssh & remote access
     ./ssh.nix
-    #./session-vars.nix
+
+    # theming
     ./catppuccin.nix
+
+    # find things
     ./locate.nix
+
+    # streaming
     ./obs.nix
+
     #./flatpak.nix
 
     # remove xterm
