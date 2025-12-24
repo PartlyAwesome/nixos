@@ -33,7 +33,7 @@
         betterSettings.enable = true;
         callTimer.enable = true;
         characterCounter.enable = true;
-        clearUrLs.enable = true;
+        ClearURLs.enable = true;
         copyStickerLinks.enable = true;
         crashHandler.enable = true;
         customIdle = {
@@ -51,7 +51,7 @@
         fixYoutubeEmbeds.enable = true;
         friendCloud.enable = true;
         friendsSince.enable = true;
-        fullVcpfp.enable = true;
+        FullVCPFP.enable = true;
         gifPaste.enable = true;
         gitHubRepos.enable = true;
         greetStickerPicker = {
@@ -60,13 +60,14 @@
         };
         homeTyping.enable = true;
         implicitRelationships.enable = true;
-        iRememberYou.enable = true;
+        IRememberYou.enable = true;
         jumpTo.enable = true;
         loadingQuotes.enable = true;
         memberCount.enable = true;
         mentionAvatars.enable = true;
-        mutualGroupDMs.enable = true;
+        MutualGroupDMs.enable = true;
         neverPausePreviews.enable = true;
+        messageColors.enable = true;
         noF1.enable = true;
         noNitroUpsell.enable = true;
         noProfileThemes.enable = true;
@@ -78,9 +79,10 @@
           notices = true;
         };
         replyTimestamp.enable = true;
-        reviewDb.enable = true;
+        ReviewDB.enable = true;
         richMagnetLinks.enable = true;
         roleColorEverywhere.enable = true;
+        reverseImageSearch.enable = true;
         secretRingToneEnabler = {
           enable = true;
           onlySnow = true;
@@ -111,10 +113,22 @@
           includeIgnoredUsers = true;
           includeBlockedUsers = true;
         };
+        toneIndicators.enable = true;
         unlockedAvatarZoom.enable = true;
         userMessagesPronouns.enable = true;
         userVoiceShow.enable = true;
         voiceDownload.enable = true;
+        validReply.enable = true;
+        validUser.enable = true;
+        voiceMessages = {
+          enable = true;
+          echoCancellation = false;
+          noiseSuppression = false;
+        };
+        volumeBooster = {
+          enable = true;
+          multiplier = 3.0;
+        };
         webScreenShareFixes.enable = true;
         whoReacted.enable = true;
         youtubeAdblock.enable = true;
