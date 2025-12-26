@@ -1,14 +1,6 @@
 {
-  lib,
-  hostsPath,
-  ...
-}: {
-  imports = lib.flatten [
+  imports = [
     ./hardware
-    (map hostsPath [
-      "common/laptop"
-      "common/keymap-asus.nix"
-    ])
   ];
 
   networking.hostName = "nixos-asus";

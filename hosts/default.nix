@@ -1,6 +1,5 @@
 {nixpkgs, ...} @ inputs: let
   lib = nixpkgs.lib;
-  hostsPath = lib.path.append ./.;
   hosts = builtins.attrNames (builtins.readDir ./sys);
   user = "hayley";
   system = "x86_64-linux";
@@ -8,10 +7,10 @@
     name = "nixos-${host}";
     value = lib.nixosSystem {
       specialArgs = {
-        inherit inputs hostsPath user;
+        inherit inputs user;
       };
       system = system;
-      modules = modules;
+      modules = lib.flatten modules;
     };
   };
 in
@@ -21,8 +20,10 @@ in
         setupHost host
         [
           inputs.nixprv.nixosModules.default
+          ./keys
           ./common
           ./sys/${host}
+          (import ./sys/${host}/modules.nix)
           (import ./homeModule.nix {
             modules = [
               ./sys/${host}/home
