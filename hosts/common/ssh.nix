@@ -15,7 +15,7 @@
       PermitRootLogin = "no";
       AllowUsers = [user];
     };
-    authorizedKeysFiles = config.keys.pub-keys;
+    authorizedKeysFiles = map builtins.toString config.keys.pub-keys;
   };
   users.users.${user}.openssh.authorizedKeys.keyFiles = config.keys.pub-keys;
   services.fail2ban.enable = true;

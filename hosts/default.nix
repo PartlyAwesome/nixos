@@ -23,7 +23,7 @@ in
           ./keys
           ./common
           ./sys/${host}
-          (import ./sys/${host}/modules.nix)
+          (map (lib.path.append ./.) (import ./sys/${host}/modules.nix))
           (import ./homeModule.nix {
             modules = [
               ./sys/${host}/home
