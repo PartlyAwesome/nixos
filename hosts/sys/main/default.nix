@@ -1,18 +1,15 @@
-{
-  lib,
-  hostsPath,
-  ...
-}: {
-  imports = lib.flatten [
+{config, ...}: {
+  imports = [
     ./hardware
     #./3proxy.nix # proxy for fast ps4 downloads
     #./monitor-links.nix # monitors network links if there is an issue, didn't solve it
-    (map hostsPath [
-      "common/gaming"
-      "common/keymap-uk.nix"
-      "common/apollo.nix"
-    ])
   ];
+
+  host-options = {
+    gaming.enable = true;
+    keymap = config.host-options.keymaps.uk;
+    apollo.enable = true;
+  };
 
   networking.hostName = "nixos-main";
 

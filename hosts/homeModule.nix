@@ -1,7 +1,6 @@
 {modules}: {
   lib,
   inputs,
-  hostsPath,
   user,
   ...
 }: {
@@ -10,10 +9,7 @@
   ];
   home-manager = {
     extraSpecialArgs = {
-      inherit
-        inputs
-        hostsPath
-        ;
+      inherit inputs;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

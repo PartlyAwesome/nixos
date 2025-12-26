@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.steam = {
-    enable = true;
+    enable = config.host-options.gaming.enable;
     extraCompatPackages = [pkgs.proton-ge-bin];
   };
 }

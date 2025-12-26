@@ -25,6 +25,15 @@
     # fish and the like
     ./shell
 
+    # host-options.gaming
+    ./gaming
+
+    # host-options.laptop
+    ./laptop
+
+    # host-options.keymap
+    ./keymaps.nix
+
     # neovim
     ./nvim.nix
 

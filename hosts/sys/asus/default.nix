@@ -1,15 +1,12 @@
-{
-  lib,
-  hostsPath,
-  ...
-}: {
-  imports = lib.flatten [
+{config, ...}: {
+  imports = [
     ./hardware
-    (map hostsPath [
-      "common/laptop"
-      "common/keymap-asus.nix"
-    ])
   ];
+
+  host-options = {
+    laptop.enable = true;
+    keymap = config.host-options.keymaps.asus;
+  };
 
   networking.hostName = "nixos-asus";
 

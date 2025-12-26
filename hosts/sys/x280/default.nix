@@ -1,20 +1,20 @@
 {
-  lib,
+  config,
   inputs,
-  hostsPath,
   ...
 }: {
-  imports = lib.flatten [
+  imports = [
     ./hardware
-    (map hostsPath [
-      "common/gaming"
-      "common/laptop"
-      "common/keymap-uk.nix"
-    ])
     (with inputs; [
       nixos-hardware.nixosModules.lenovo-thinkpad-x280
     ])
   ];
+
+  host-options = {
+    gaming.enable = true;
+    laptop.enable = true;
+    keymap = config.host-options.keymaps.uk;
+  };
 
   networking.hostName = "nixos-x280";
 
