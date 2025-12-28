@@ -7,7 +7,7 @@
     name = "nixos-${host}";
     value = lib.nixosSystem {
       specialArgs = {
-        inherit inputs user;
+        inherit inputs;
       };
       system = system;
       modules = lib.flatten modules;
@@ -25,6 +25,7 @@ in
           ./sys/${host}
           (map (lib.path.append ./.) (import ./sys/${host}/modules.nix))
           (import ./homeModule.nix {
+            user = user;
             modules = [
               ./sys/${host}/home
             ];

@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  user,
   ...
 }: {
   programs.bash.interactiveShellInit = builtins.readFile (
@@ -11,7 +10,7 @@
       fish = lib.getExe pkgs.fish;
     }
   );
-  home-manager.users.${user} = {
+  hm = {
     home.shellAliases = config.environment.shellAliases;
     programs.fish = {
       enable = true;

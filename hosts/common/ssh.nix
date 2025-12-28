@@ -1,8 +1,4 @@
-{
-  config,
-  user,
-  ...
-}: {
+{config, ...}: {
   programs.ssh.startAgent = true;
   services.openssh = {
     enable = true;
@@ -13,10 +9,10 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [user];
+      AllowUsers = [config.user.name];
     };
     authorizedKeysFiles = map builtins.toString config.keys.pub-keys;
   };
-  users.users.${user}.openssh.authorizedKeys.keyFiles = config.keys.pub-keys;
+  user.openssh.authorizedKeys.keyFiles = config.keys.pub-keys;
   services.fail2ban.enable = true;
 }

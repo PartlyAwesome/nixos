@@ -1,11 +1,15 @@
-{modules}: {
+{
+  user,
+  modules,
+}: {
+  config,
   lib,
   inputs,
-  user,
   ...
 }: {
   imports = with inputs; [
     home-manager.nixosModules.home-manager
+    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" user])
   ];
   home-manager = {
     extraSpecialArgs = {
