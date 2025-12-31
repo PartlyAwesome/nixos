@@ -55,6 +55,7 @@
       ts.enable = true;
       rust.enable = true;
       bash.enable = true;
+      html.enable = true;
     };
 
     binds = {
