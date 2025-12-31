@@ -1,6 +1,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./extra-drives.nix
   ];
 
   boot.kernelModules = ["v4l2loopback"];
