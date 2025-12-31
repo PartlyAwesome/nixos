@@ -40,6 +40,7 @@
     pinta
     heroic
     rustdesk-flutter
+    davinci-resolve
   ];
 
   home.stateVersion = "25.05";
