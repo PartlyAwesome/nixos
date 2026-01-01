@@ -24,7 +24,7 @@ in
         }
         ./sys/${host}
         (map (lib.path.append ./.) (import ./sys/${host}/modules.nix))
-        (import ./homeModule.nix {
+        (lib.modules.importApply ./homeModule.nix {
           user = user;
           modules = [
             ./sys/${host}/home
