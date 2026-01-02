@@ -22,6 +22,7 @@
     nixcord.url = "github:FlameFlag/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs = inputs: {

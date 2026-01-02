@@ -1,5 +1,11 @@
-{pkgs, ...}: {
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
+  nixpkgs.overlays = [inputs.cachyos.overlays.pinned];
+  boot.kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
