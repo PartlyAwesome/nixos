@@ -3,39 +3,39 @@
 @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-pink.theme.css");
 
 :root {
-    --columns: 2;
-    --guildsize: 30;
-    --custom-emoji-size-emoji: 3.5rem;
-    --custom-emoji-size-jumbo-emoji: 4rem;
-    --custom-app-top-bar-height: 0px;
+  --columns: 2;
+  --guildsize: 30;
+  --custom-emoji-size-emoji: 3.5rem;
+  --custom-emoji-size-jumbo-emoji: 4rem;
+  --custom-app-top-bar-height: 0px;
 }
 
-.container__040f0 {
-    top: -32px;
+.c19a557985eb7793-buttonContainer {
+  top: -8px;
 }
 
 .c19a557985eb7793-avatar {
-    width: calc(var(--custom-message-margin-left-content-cozy) - 5px);
-    height: calc(var(--custom-message-margin-left-content-cozy) - 5px);
-    background-size: cover !important;
-    left: 2.5px;
-    border-radius: 5%;
+  width: calc(var(--custom-message-margin-left-content-cozy) - 5px);
+  height: calc(var(--custom-message-margin-left-content-cozy) - 5px);
+  background-size: cover !important;
+  left: 2.5px;
+  border-radius: 5%;
 }
 
 .visual-refresh .buttons__74017 {
-    gap: 0;
+  gap: 0;
 }
 
 .buttonWrapper__24af7 svg {
-    height: 20px;
-    width: 20px;
+  height: 20px;
+  width: 20px;
 }
 
 .c19a557985eb7793-avatarDecoration {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .bar_c38106 {
-    height: 0px;
-    display: none !important;
+  height: 0px;
+  display: none !important;
 }
