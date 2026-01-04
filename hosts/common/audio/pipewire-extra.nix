@@ -1,4 +1,6 @@
-{
+{lib, ...}: let
+  #loudmax_plugin = builtins.head (lib.splitString "." (builtins.toString ./loudmax/loudmax64.so));
+in {
   services.pipewire.extraConfig.pipewire = {
     "10-null-sink" = {
       "context.objects" = [
@@ -46,9 +48,34 @@
     };
     "20-filter-chain" = {
       "context.modules" = [
+        {
+          name = "libpipewire-module-filter-chain";
+          args = {
+            "node.description" = "ladspa plugin";
+            "media.name" = "ladspa plugin";
+            "filter.graph" = {
+              nodes = [
+                {
+                  type = "ladspa";
+                  name = "loudmax";
+                  plugin = ./loudmax/loudmax64.so;
+                  label = "loudmax";
+                }
+              ];
+            };
+            "capture.props" = {
+              "node.name" = "loudmax.capture";
+              "node.passive" = "true";
+            };
+            "playback.props" = {
+              "node.name" = "loudmax.playback";
+              "media.class" = "Audio/Source";
+            };
+          };
+        }
       ];
     };
-    #"20-link-null-sink" = {
+    # "20-link-null-sink" = {
     #  "context.objects" = [
     #    {
     #      factory = "link-factory";
@@ -61,6 +88,6 @@
     #      };
     #    }
     #  ];
-    #};
+    # };
   };
 }
