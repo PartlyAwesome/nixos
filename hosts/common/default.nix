@@ -1,39 +1,51 @@
 {
-  self,
-  nixpkgs,
-  lib,
-  inputs,
-  hostsPath,
-  optionally,
-  users,
-  ...
-}:
-{
-  imports = lib.flatten [
-    (with inputs; [
-      chaotic.nixosModules.default
-      catppuccin.nixosModules.default
-    ])
-    (map hostsPath [
-      "common/home"
-      "common/audio"
-      "common/shell"
-    ])
-    (map (user: optionally (hostsPath "users/${user}.nix")) users)
+  imports = [
+    # nix settings
+    ./settings.nix
+
+    # substitutors
+    ./subs.nix
+
+    # lix
+    ./lix.nix
+
+    # nh
+    ./nh.nix
+
+    # common system stuff
     ./bootloader.nix
     ./kernel.nix
-    ./lix.nix
-    ./nvim.nix
     ./networking.nix
     ./locale.nix
-    ./kde.nix
     ./printing.nix
+
+    # pipewire things
+    ./audio
+
+    # fish and the like
+    ./shell
+
+    # neovim
+    ./nvim.nix
+
+    # desktop environment
+    ./kde.nix
+
+    # phone adb
     ./adb.nix
+
+    # ssh & remote access
     ./ssh.nix
-    #./session-vars.nix
+
+    # theming
     ./catppuccin.nix
+
+    # find things
     ./locate.nix
+
+    # streaming
     ./obs.nix
+
     #./flatpak.nix
 
     # remove xterm
@@ -47,5 +59,17 @@
 
     # input remapping
     ./inputs.nix
+
+    # appimages
+    ./appimage.nix
+
+    # udev rules
+    ./udev.nix
+
+    # secrets management
+    ./secrets
+
+    # localsend
+    ./localsend.nix
   ];
 }

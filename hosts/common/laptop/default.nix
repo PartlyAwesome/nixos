@@ -1,12 +1,4 @@
-{
-  self,
-  nixpkgs,
-  lib,
-  inputs,
-  ...
-}:
-
-{
+{inputs, ...}: {
   imports = with inputs; [
     auto-cpufreq.nixosModules.default
   ];

@@ -1,10 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}:
-
-{
+{inputs, ...}: {
   imports = with inputs; [
     zen-browser.homeModules.default
   ];

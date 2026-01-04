@@ -1,25 +1,10 @@
 {
   description = "NixOS configuration";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://colmena.cachix.org"
-      "https://chaotic-nyx.cachix.org"
-      "https://mio.cachix.org/"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
-      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-      "mio.cachix.org-1:FlupyyLPURqwdRqtPT/LBWKsXY7JKsDkzZQo2K6LeMM="
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-jelly.url = "github:picnoir/nixpkgs/pic/jellyfin-qt6";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
+    nixprv.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -32,51 +17,15 @@
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
     apollo-flake.url = "github:nil-andreas/apollo-flake";
-    nvf.url = "github:NotAShelf/nvf/v0.8";
+    nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
-    mio-pkgs.url = "github:mio-19/nurpkgs";
-    mio-pkgs.inputs.nixpkgs.follows = "nixpkgs";
+    nixcord.url = "github:FlameFlag/nixcord";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    lib = nixpkgs.lib;
-    hostsPath = lib.path.append ./hosts;
-    hosts = builtins.attrNames (builtins.readDir (hostsPath "sys"));
-    optionally = path: lib.optional (builtins.pathExists path) path;
-    setValueForUsers = value: (builtins.listToAttrs (
-      map (user: {
-        name = "${user}";
-        value = value;
-      })
-      users
-    ));
-    users = [
-      "hayley"
-    ];
-    system = "x86_64-linux";
-  in {
-    nixosConfigurations = builtins.listToAttrs (
-      map (host: {
-        name = "nixos-${host}";
-        value = lib.nixosSystem {
-          specialArgs = {
-            inherit
-              inputs
-              hostsPath
-              optionally
-              setValueForUsers
-              users
-              host
-              system
-              ;
-          };
-          system = system;
-          modules = [
-            (hostsPath "sys/${host}")
-          ];
-        };
-      })
-      hosts
-    );
+  outputs = inputs: {
+    nixosConfigurations = import ./hosts inputs;
   };
 }

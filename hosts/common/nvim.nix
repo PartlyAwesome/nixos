@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -13,6 +12,13 @@
   programs.nvf.settings.vim = {
     viAlias = true;
     vimAlias = true;
+
+    searchCase = "smart";
+
+    clipboard = {
+      enable = true;
+      providers.wl-copy.enable = true;
+    };
 
     theme = {
       enable = true;
@@ -49,6 +55,14 @@
       ts.enable = true;
       rust.enable = true;
       bash.enable = true;
+      html.enable = true;
+      css.enable = true;
+    };
+
+    binds = {
+      cheatsheet.enable = true;
+      hardtime-nvim.enable = true;
+      whichKey.enable = true;
     };
   };
 }

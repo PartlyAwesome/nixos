@@ -2,14 +2,11 @@
   pkgs,
   lib,
   ...
-}:
-
-let
+}: let
   stdenvNoCC = pkgs.stdenvNoCC;
   fetchFromGitHub = pkgs.fetchFromGitHub;
-  posy-scalable = pkgs.callPackage ./posy-scalable.nix { inherit lib stdenvNoCC fetchFromGitHub; };
-in
-{
+  posy-scalable = pkgs.callPackage ./posy-scalable.nix {inherit lib stdenvNoCC fetchFromGitHub;};
+in {
   services.xsettingsd.enable = true;
   home.pointerCursor = {
     enable = true;
