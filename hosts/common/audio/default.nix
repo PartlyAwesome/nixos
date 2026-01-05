@@ -2,6 +2,7 @@
   imports = [
     ./noisetorch.nix
     ./qpwgraph.nix
+    ./carla.nix
     ./pipewire-extra.nix
   ];
 
