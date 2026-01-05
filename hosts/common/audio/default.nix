@@ -1,7 +1,13 @@
-{
+{pkgs, ...}: {
   imports = [
+    ./noisetorch.nix
     ./qpwgraph.nix
+    ./carla.nix
     ./pipewire-extra.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    ladspa-sdk
   ];
 
   security.rtkit.enable = true;
