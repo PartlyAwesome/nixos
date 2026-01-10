@@ -120,6 +120,11 @@
         voiceDownload.enable = true;
         validReply.enable = true;
         validUser.enable = true;
+        viewIcons = {
+          enable = true;
+          format = "png";
+          imgSize = "4096";
+        };
         voiceMessages = {
           enable = true;
           echoCancellation = false;
