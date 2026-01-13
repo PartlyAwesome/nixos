@@ -37,34 +37,42 @@
             nodes = [
               {
                 type = "ladspa";
-                name = "loudmax";
+                name = name;
                 plugin = loudmax_plugin;
                 label = "ldmx_stereo";
                 control = {
-                  "Threshold (db)" = "-25";
-                  "Output (db)" = "0";
+                  "Threshold (dB)" = threshold;
+                  "Output (dB)" = 0;
                 };
               }
             ];
           };
           "capture.props" = {
-            "node.name" = "loudmax.capture";
+            "node.name" = name;
             "node.passive" = "true";
             "node.autoconnect" = "false";
           };
           "playback.props" = {
-            "node.name" = "loudmax.playback";
+            "node.name" = name;
             "media.class" = "Audio/Source";
           };
         };
       }
     ];
   };
+  nodes = {
+    desktop-audio = "Desktop Audio";
+    discord-audio = "Discord Audio";
+    desktop-compressor = "Desktop Compressor";
+    discord-compressor = "Discord Compressor";
+    hd6xx-eq-input = "HD6XX EQ Input";
+    hd6xx-eq-output = "HD6XX EQ Output";
+  };
 in {
   services.pipewire.extraConfig.pipewire = {
-    "10-desktop-audio" = createAudioSink "Desktop Audio";
-    "10-discord-audio" = createAudioSink "Discord Audio";
-    "15-para-eq" = {
+    "10-desktop-audio" = createAudioSink nodes.desktop-audio;
+    "15-discord-audio" = createAudioSink nodes.discord-audio;
+    "20-para-eq" = {
       "context.modules" = [
         {
           name = "libpipewire-module-parametric-equalizer";
@@ -74,13 +82,13 @@ in {
             "audio.channels" = "2";
             "audio.position" = "FL,FR";
             "capture.props" = {
-              "node.name" = "hd6xx-eq";
+              "node.name" = nodes.hd6xx-eq-input;
               "node.autoconnect" = "false";
               "node.passive" = "true";
               "monitor.passthrough" = "false";
             };
             "playback.props" = {
-              "node.name" = "hd6xx-eq";
+              "node.name" = nodes.hd6xx-eq-output;
               "node.autoconnect" = "false";
               "node.passive" = "true";
             };
@@ -88,27 +96,27 @@ in {
         }
       ];
     };
-    "20-desktop-compressor" = createLoudMaxNode {
-      name = "Desktop Compressor";
-      threshold = "-25";
+    "25-desktop-compressor" = createLoudMaxNode {
+      name = nodes.desktop-compressor;
+      threshold = -25.0;
     };
-    "20-discord-compressor" = createLoudMaxNode {
-      name = "Discord Compressor";
-      threshold = "-28";
+    "30-discord-compressor" = createLoudMaxNode {
+      name = nodes.discord-compressor;
+      threshold = -28.0;
     };
-    # "20-link-null-sink" = {
-    #  "context.objects" = [
-    #    {
-    #      factory = "link-factory";
-    #      arg = {
-    #        "link.output.node" = "my-sink";
-    #        "link.output.port" = "output_FL";
-    #        "link.input.node" = "system";
-    #        "link.input.port" = "playback_1";
-    #        "link.passive" = "true";
-    #      };
-    #    }
-    #  ];
+    # "40-link-null-sink" = {
+    #   "context.objects" = [
+    #     {
+    #       factory = "link-factory";
+    #       args = {
+    #         "link.output.node" = nodes.desktop-audio;
+    #         "link.output.port" = "monitor_FL";
+    #         "link.input.node" = nodes.desktop-compressor;
+    #         "link.input.port" = "input_FL";
+    #         #"link.passive" = "true";
+    #       };
+    #     }
+    #   ];
     # };
   };
 }
