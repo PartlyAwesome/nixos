@@ -5,6 +5,8 @@
       nerd-fonts.roboto-mono
       roboto-flex
       roboto-serif
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
     ];
 
     fontDir.enable = true;
