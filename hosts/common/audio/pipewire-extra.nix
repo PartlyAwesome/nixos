@@ -10,6 +10,7 @@
         args = {
           "factory.name" = "support.null-audio-sink";
           "node.name" = name;
+          "node.description" = name;
           "media.class" = "Audio/Sink";
           "audio.position" = "FL,FR";
           "monitor.channel-volumes" = "true";
