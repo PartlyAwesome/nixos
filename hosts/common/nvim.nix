@@ -57,6 +57,7 @@
       bash.enable = true;
       html.enable = true;
       css.enable = true;
+      lua.enable = true;
     };
 
     binds = {
