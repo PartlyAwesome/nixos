@@ -18,6 +18,7 @@
     ./networking.nix
     ./locale.nix
     ./printing.nix
+    ./killall.nix
 
     # pipewire things
     ./audio
