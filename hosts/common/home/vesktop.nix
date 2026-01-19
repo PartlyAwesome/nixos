@@ -16,7 +16,6 @@
       };
       enabledThemes = ["catppuccin.css"];
       plugins = {
-        allCallTimers.enable = true;
         alwaysAnimate.enable = true;
         anammox = {
           enable = true;
@@ -31,7 +30,13 @@
           compactMode = true;
         };
         betterSettings.enable = true;
-        callTimer.enable = true;
+        callTimer = {
+          enable = true;
+          allCallTimers = true;
+          showSeconds = true;
+          showWithoutHover = true;
+          trackSelf = true;
+        };
         characterCounter.enable = true;
         ClearURLs.enable = true;
         copyStickerLinks.enable = true;
