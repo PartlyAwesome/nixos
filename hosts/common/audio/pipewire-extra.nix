@@ -68,56 +68,83 @@
     discord-compressor = "Discord Compressor";
     hd6xx-eq-input = "HD6XX EQ Input";
     hd6xx-eq-output = "HD6XX EQ Output";
+    pre-eq = "Pre-EQ";
   };
 in {
-  services.pipewire.extraConfig.pipewire = {
-    "10-desktop-audio" = createAudioSink nodes.desktop-audio;
-    "15-discord-audio" = createAudioSink nodes.discord-audio;
-    "20-para-eq" = {
-      "context.modules" = [
-        {
-          name = "libpipewire-module-parametric-equalizer";
-          args = {
-            "equalizer.filepath" = ./hd6xx.eq;
-            "equalizer.description" = "HD6XX EQ";
-            "audio.channels" = "2";
-            "audio.position" = "FL,FR";
-            "capture.props" = {
-              "node.name" = nodes.hd6xx-eq-input;
-              "node.autoconnect" = "false";
-              "node.passive" = "true";
-              "monitor.passthrough" = "false";
+  services.pipewire = {
+    extraConfig.pipewire = {
+      "desktop-audio" = createAudioSink nodes.desktop-audio;
+      "discord-audio" = createAudioSink nodes.discord-audio;
+      "pre-eq" = createAudioSink nodes.pre-eq;
+      "para-eq" = {
+        "context.modules" = [
+          {
+            name = "libpipewire-module-parametric-equalizer";
+            args = {
+              "equalizer.filepath" = ./hd6xx.eq;
+              "equalizer.description" = "HD6XX EQ";
+              "audio.channels" = "2";
+              "audio.position" = "FL,FR";
+              "capture.props" = {
+                "node.name" = nodes.hd6xx-eq-input;
+                "node.autoconnect" = "false";
+                "node.passive" = "true";
+                "monitor.passthrough" = "false";
+              };
+              "playback.props" = {
+                "node.name" = nodes.hd6xx-eq-output;
+                "node.autoconnect" = "false";
+                "node.passive" = "true";
+              };
             };
-            "playback.props" = {
-              "node.name" = nodes.hd6xx-eq-output;
-              "node.autoconnect" = "false";
-              "node.passive" = "true";
+          }
+        ];
+      };
+      "desktop-compressor" = createLoudMaxNode {
+        name = nodes.desktop-compressor;
+        threshold = -25.0;
+      };
+      "discord-compressor" = createLoudMaxNode {
+        name = nodes.discord-compressor;
+        threshold = -28.0;
+      };
+      # Pipewire does not currently load it's configuration in order
+      # so the link-factory always errors out, so Wireplumber is needed
+      # "40-link-null-sink" = {
+      #   "context.objects" = [
+      #     {
+      #       factory = "link-factory";
+      #       args = {
+      #         "link.output.node" = nodes.desktop-audio;
+      #         "link.output.port" = "monitor_FL";
+      #         "link.input.node" = nodes.desktop-compressor;
+      #         "link.input.port" = "input_FL";
+      #         #"link.passive" = "true";
+      #       };
+      #     }
+      #   ];
+      # };
+    };
+    wireplumber = {
+      extraConfig = {
+        "99-auto-connect" = {
+          "wireplumber.components" = [
+            {
+              name = "startup/auto-connect-ports.lua";
+              type = "script/lua";
+              provides = "custom.auto-connect-ports";
+            }
+          ];
+          "wireplumber.profiles" = {
+            main = {
+              "custom.auto-connect-ports" = "required";
             };
           };
-        }
-      ];
+        };
+      };
+      extraScripts = {
+        "startup/auto-connect-ports.lua" = builtins.readFile ./auto-connect-ports.lua;
+      };
     };
-    "25-desktop-compressor" = createLoudMaxNode {
-      name = nodes.desktop-compressor;
-      threshold = -25.0;
-    };
-    "30-discord-compressor" = createLoudMaxNode {
-      name = nodes.discord-compressor;
-      threshold = -28.0;
-    };
-    # "40-link-null-sink" = {
-    #   "context.objects" = [
-    #     {
-    #       factory = "link-factory";
-    #       args = {
-    #         "link.output.node" = nodes.desktop-audio;
-    #         "link.output.port" = "monitor_FL";
-    #         "link.input.node" = nodes.desktop-compressor;
-    #         "link.input.port" = "input_FL";
-    #         #"link.passive" = "true";
-    #       };
-    #     }
-    #   ];
-    # };
   };
 }
