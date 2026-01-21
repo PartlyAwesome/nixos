@@ -19,7 +19,7 @@
     apollo-flake.url = "github:nil-andreas/apollo-flake";
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
-    nixcord.url = "path:/home/hayley/nixcord";
+    nixcord.url = "github:FlameFlag/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
