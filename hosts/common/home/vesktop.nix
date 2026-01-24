@@ -30,9 +30,8 @@
           compactMode = true;
         };
         betterSettings.enable = true;
-        callTimer = {
+        allCallTimers = {
           enable = true;
-          allCallTimers = true;
           showSeconds = true;
           showWithoutHover = true;
           trackSelf = true;
@@ -85,7 +84,6 @@
         };
         replyTimestamp.enable = true;
         ReviewDB.enable = true;
-        richMagnetLinks.enable = true;
         roleColorEverywhere.enable = true;
         reverseImageSearch.enable = true;
         secretRingToneEnabler = {
