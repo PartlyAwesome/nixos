@@ -8,16 +8,16 @@
   --custom-emoji-size-emoji: 3.5rem;
   --custom-emoji-size-jumbo-emoji: 4rem;
   --custom-app-top-bar-height: 0px;
+  --chat-avatar-size: calc(
+    var(--custom-message-margin-left-content-cozy) - 5px
+  );
 }
 
-.c19a557985eb7793-buttonContainer {
+.buttonContainer_c19a55 {
   top: -8px;
 }
 
-.c19a557985eb7793-avatar {
-  width: calc(var(--custom-message-margin-left-content-cozy) - 5px);
-  height: calc(var(--custom-message-margin-left-content-cozy) - 5px);
-  background-size: cover !important;
+.avatar_c19a55 {
   left: 2.5px;
   border-radius: 5%;
 }
@@ -31,7 +31,7 @@
   width: 20px;
 }
 
-.c19a557985eb7793-avatarDecoration {
+.avatarDecoration_c19a55 {
   visibility: hidden;
 }
 
