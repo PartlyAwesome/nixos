@@ -64,8 +64,10 @@
   nodes = {
     desktop-audio = "Desktop Audio";
     discord-audio = "Discord Audio";
+    game-audio = "Game Audio";
     desktop-compressor = "Desktop Compressor";
     discord-compressor = "Discord Compressor";
+    game-compressor = "Game Compressor";
     hd6xx-eq-input = "HD6XX EQ Input";
     hd6xx-eq-output = "HD6XX EQ Output";
     pre-eq = "Pre-EQ";
@@ -75,6 +77,7 @@ in {
     extraConfig.pipewire = {
       "desktop-audio" = createAudioSink nodes.desktop-audio;
       "discord-audio" = createAudioSink nodes.discord-audio;
+      "game-audio" = createAudioSink nodes.game-audio;
       "pre-eq" = createAudioSink nodes.pre-eq;
       "para-eq" = {
         "context.modules" = [
@@ -107,6 +110,10 @@ in {
       "discord-compressor" = createLoudMaxNode {
         name = nodes.discord-compressor;
         threshold = -28.0;
+      };
+      "game-compressor" = createLoudMaxNode {
+        name = nodes.game-compressor;
+        threshold = -15.0;
       };
       # Pipewire does not currently load it's configuration in order
       # so the link-factory always errors out, so Wireplumber is needed

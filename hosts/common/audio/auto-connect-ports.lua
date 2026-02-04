@@ -190,6 +190,16 @@ auto_connect_ports({
 	},
 })
 
+-- Connect Game Audio -> Game Compressor
+auto_connect_ports({
+	output = Constraint({ "object.path", "matches", "Game Audio*" }),
+	input = Constraint({ "object.path", "matches", "Game Compressor*" }),
+	connect = {
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+
 -- Connect Desktop Compressor -> Pre-EQ
 auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Desktop Compressor:capture*" }),
@@ -210,10 +220,30 @@ auto_connect_ports({
 	},
 })
 
+-- Connect Game Compressor -> Pre-EQ
+auto_connect_ports({
+	output = Constraint({ "object.path", "matches", "Game Compressor:capture*" }),
+	input = Constraint({ "object.path", "matches", "Pre-EQ*" }),
+	connect = {
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+
 -- Connect Pre-EQ -> HD6XX EQ Input
 auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Pre-EQ*" }),
 	input = Constraint({ "object.path", "matches", "HD6XX EQ Input*" }),
+	connect = {
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+
+-- Connect HD6XX Output -> JDS Atom DAC
+auto_connect_ports({
+	output = Constraint({ "object.path", "matches", "HD6XX EQ Output*" }),
+	input = Constraint({ "port.alias", "matches", "JDS Labs Atom DAC+*" }),
 	connect = {
 		["FL"] = "FL",
 		["FR"] = "FR",
