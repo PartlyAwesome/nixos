@@ -38,6 +38,9 @@
     # ssh & remote access
     ./ssh.nix
 
+    # QMK support
+    ./qmk.nix
+
     # theming
     ./catppuccin.nix
 
