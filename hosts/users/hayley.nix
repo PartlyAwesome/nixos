@@ -5,6 +5,6 @@
   user = {
     isNormalUser = true;
     description = "Hayley";
-    extraGroups = ["networkmanager" "wheel" "adbusers" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "adbusers" "dialout" "tty"];
   };
 }
