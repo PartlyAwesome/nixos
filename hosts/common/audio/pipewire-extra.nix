@@ -52,10 +52,12 @@
             "node.name" = name;
             "node.passive" = "true";
             "node.autoconnect" = "false";
+            "audio.position" = "FL,FR";
           };
           "playback.props" = {
             "node.name" = name;
             "media.class" = "Audio/Source";
+            "audio.position" = "FL,FR";
           };
         };
       }
