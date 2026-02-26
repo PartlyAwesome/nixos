@@ -51,6 +51,7 @@
         disableCallIdle.enable = true;
         dontRoundMyTimestamps.enable = true;
         expressionCloner.enable = true;
+        fakeNitro.enable = true;
         favoriteGifSearch.enable = true;
         fixYoutubeEmbeds.enable = true;
         friendCloud.enable = true;
