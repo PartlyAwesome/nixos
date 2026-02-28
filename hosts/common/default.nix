@@ -50,6 +50,9 @@
     # streaming
     ./obs.nix
 
+    # notes
+    ./obsidian.nix
+
     #./flatpak.nix
 
     # remove xterm
