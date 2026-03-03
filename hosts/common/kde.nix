@@ -10,10 +10,18 @@
     };
     displayManager = {
       defaultSession = "plasma";
-      sddm = {
+      # sddm = {
+      #   enable = true;
+      #   wayland.enable = true;
+      # };
+      dms-greeter = {
         enable = true;
-        wayland.enable = true;
+        compositor.name = "niri";
       };
     };
   };
+  # for dms
+  programs.niri.enable = true;
+  # idfk
+  services.gnome.gcr-ssh-agent.enable = false;
 }
