@@ -1,4 +1,8 @@
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     # nix settings
     ./settings.nix
@@ -43,6 +47,7 @@
 
     # theming
     ./catppuccin.nix
+    ./cursor.nix
 
     # find things
     ./locate.nix
@@ -79,4 +84,5 @@
     # localsend
     ./localsend.nix
   ];
+  environment.systemPackages = with pkgs; [inputs.slippi.packages.x86_64-linux.slippi-launcher];
 }

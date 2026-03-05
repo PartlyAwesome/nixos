@@ -23,6 +23,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
+    slippi.url = "github:ImYuugen/nix-ssb";
   };
 
   outputs = inputs: {

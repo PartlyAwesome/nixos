@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./cursor.nix
     ./proton
     ./catppuccin.nix
     #./firefox.nix
