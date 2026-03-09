@@ -26,6 +26,9 @@
     # fish and the like
     ./shell
 
+    # xdg things
+    ./xdg.nix
+
     # neovim
     ./nvim.nix
 
