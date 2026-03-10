@@ -297,16 +297,15 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1773136890,
-        "narHash": "sha256-Gw3/VPIEXOTb15dMeUZ//iqAg/iZtnau+xiMopMv6PU=",
-        "owner": "PartlyAwesome",
+        "lastModified": 1773144845,
+        "narHash": "sha256-bU+q8v1xjbYEjWaqCL1P5y/mloSqXGkGot5MZhLCSf4=",
+        "owner": "FlameFlag",
         "repo": "nixcord",
-        "rev": "7715221491861b24e30b254b6d7b6b7a14d722af",
+        "rev": "df70a89c4aaf0bfaf419e1deafd43e92e9c98430",
         "type": "github"
       },
       "original": {
-        "owner": "PartlyAwesome",
-        "ref": "pnpm-hash-fix",
+        "owner": "FlameFlag",
         "repo": "nixcord",
         "type": "github"
       }
