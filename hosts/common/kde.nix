@@ -4,24 +4,14 @@
   ];
   services = {
     xserver.enable = true;
-    desktopManager.plasma6 = {
-      enable = true;
-      # enable Qt5Integration = true;
-    };
-    displayManager = {
-      defaultSession = "plasma";
-      # sddm = {
-      #   enable = true;
-      #   wayland.enable = true;
-      # };
-      dms-greeter = {
-        enable = true;
-        compositor.name = "niri";
-      };
-    };
+    desktopManager.plasma6.enable = true;
+    # Using DMS, we don't need SDDM
+    # displayManager = {
+    # defaultSession = "plasma";
+    # sddm = {
+    #   enable = true;
+    #   wayland.enable = true;
+    # };
+    # };
   };
-  # for dms
-  programs.niri.enable = true;
-  # idfk
-  services.gnome.gcr-ssh-agent.enable = false;
 }

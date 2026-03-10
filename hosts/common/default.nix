@@ -34,6 +34,7 @@
 
     # desktop environment
     ./kde.nix
+    ./dms.nix
 
     # phone adb
     ./adb.nix
