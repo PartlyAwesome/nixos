@@ -1,5 +1,7 @@
 {
   imports = [
+    # horrible hack
+    ./pkgs-small.nix
     # nix settings
     ./settings.nix
 

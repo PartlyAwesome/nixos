@@ -17,21 +17,23 @@
       enabledThemes = ["catppuccin.css"];
       plugins = {
         alwaysAnimate.enable = true;
-        anammox = {
+        declutter = {
           enable = true;
-          billing = false;
+          removeButtonTooltips = false;
+          removeClanTag = false;
         };
         atSomeone.enable = true;
         betterBlockedUsers.enable = true;
-        betterQuickReact = {
+        moreQuickReactions = {
           enable = true;
           rows = 3.0;
           columns = 6.0;
           compactMode = true;
         };
         betterSettings.enable = true;
-        allCallTimers = {
+        callTimer = {
           enable = true;
+          allCallTimers = true;
           showSeconds = true;
           showWithoutHover = true;
           trackSelf = true;
@@ -54,7 +56,6 @@
         fakeNitro.enable = true;
         favoriteGifSearch.enable = true;
         fixYoutubeEmbeds.enable = true;
-        friendCloud.enable = true;
         friendsSince.enable = true;
         FullVCPFP.enable = true;
         gifPaste.enable = true;
@@ -97,7 +98,7 @@
         showHiddenThings.enable = true;
         showTimeoutDuration.enable = true;
         silentTyping.enable = true;
-        sortFriendRequests = {
+        sortFriends = {
           enable = true;
           showDates = true;
         };
