@@ -69,6 +69,7 @@
 
     # input remapping
     ./inputs.nix
+    ./macro.nix
 
     # appimages
     ./appimage.nix
