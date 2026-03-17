@@ -1,5 +1,7 @@
 {
   imports = [
+    # horrible hack
+    ./pkgs-small.nix
     # nix settings
     ./settings.nix
 
@@ -70,6 +72,7 @@
 
     # input remapping
     ./inputs.nix
+    ./macro.nix
 
     # appimages
     ./appimage.nix

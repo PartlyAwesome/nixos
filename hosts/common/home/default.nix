@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs_small,
+  ...
+}: {
   imports = [
     ./cursor.nix
     ./proton
@@ -32,13 +36,13 @@
     gimp
     nurl
     catppuccin-kde
-    bitwarden-desktop
+    (bitwarden-desktop.override {electron_39 = pkgs_small.electron_39;})
     bitwarden-cli
     moonlight-qt
     fastfetch
     ffmpeg-full
     pinta
-    heroic
+    (heroic.override {heroic-unwrapped = pkgs_small.heroic-unwrapped;})
     rustdesk-flutter
     davinci-resolve
   ];
