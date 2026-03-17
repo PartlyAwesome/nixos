@@ -24,6 +24,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+    dms-plugins.url = "github:AvengeMedia/dms-plugin-registry";
+    dms-plugins.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {

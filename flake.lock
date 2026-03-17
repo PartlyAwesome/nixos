@@ -112,6 +112,26 @@
         "type": "github"
       }
     },
+    "dms-plugins": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773691925,
+        "narHash": "sha256-OtmQRjxDoOFdgueSmmM/zEH5PDJomIs9Yiawg+HavwA=",
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "rev": "16c303569c666f56b3c3dbefd627c9c1575cd717",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -514,12 +534,33 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773767401,
+        "narHash": "sha256-2pLyZuQBdpVNwtZTbHIxT8goGO1gc74oB8cBRf4VtSE=",
+        "ref": "refs/heads/master",
+        "rev": "3cf65af49f22843386ac421f3889762e6f43a425",
+        "revCount": 767,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      }
+    },
     "root": {
       "inputs": {
         "apollo-flake": "apollo-flake",
         "auto-cpufreq": "auto-cpufreq",
         "cachyos": "cachyos",
         "catppuccin": "catppuccin",
+        "dms-plugins": "dms-plugins",
         "home-manager": "home-manager",
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
@@ -527,6 +568,7 @@
         "nixpkgs-small": "nixpkgs-small",
         "nixprv": "nixprv",
         "nvf": "nvf",
+        "quickshell": "quickshell",
         "sops-nix": "sops-nix",
         "zen-browser": "zen-browser"
       }
