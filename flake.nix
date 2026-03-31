@@ -24,6 +24,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = inputs: {
