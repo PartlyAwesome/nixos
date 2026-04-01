@@ -5,15 +5,6 @@
 
   boot.initrd.availableKernelModules = ["usbhid" "sd_mod"];
 
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 16 * 1024;
-    }
-  ];
-
-  zramSwap.enable = true;
-
   hardware.graphics = {
     enable = true;
   };
@@ -26,4 +17,6 @@
     enable = true;
     powerOnBoot = true;
   };
+
+  host.hardware.ramsize = 16;
 }
