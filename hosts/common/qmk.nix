@@ -1,10 +1,12 @@
 {pkgs, ...}: {
+  user.extraGroups = ["dialout" "tty"];
+
   hardware.keyboard.qmk = {
     enable = true;
     keychronSupport = true;
   };
 
-  hm.home.packages = with pkgs; [
+  home-pkgs = with pkgs; [
     zmk-studio
   ];
 }
