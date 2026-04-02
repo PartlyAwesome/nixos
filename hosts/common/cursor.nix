@@ -7,7 +7,7 @@
   fetchFromGitHub = pkgs.fetchFromGitHub;
   posy-scalable = pkgs.callPackage ./posy-scalable.nix {inherit lib stdenvNoCC fetchFromGitHub;};
 in {
-  environment.systemPackages = with pkgs; [xsettingsd xorg.xrdb posy-scalable];
+  environment.systemPackages = with pkgs; [xsettingsd xrdb posy-scalable];
   home-pkgs = [posy-scalable];
   hm.services.xsettingsd.enable = true;
   hm.home.pointerCursor = {
