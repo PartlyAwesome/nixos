@@ -24,7 +24,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
-    slippi.url = "github:ImYuugen/nix-ssb";
     xremap-flake.url = "github:xremap/nix-flake";
     mixid.url = "github:leguteape/MixiD?dir=Nix";
     mixid.inputs.nixpkgs.follows = "nixpkgs";

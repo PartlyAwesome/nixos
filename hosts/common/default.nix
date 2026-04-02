@@ -94,5 +94,4 @@
     # mixid for audient id14
     ./mixid.nix
   ];
-  environment.systemPackages = with pkgs; [inputs.slippi.packages.x86_64-linux.slippi-launcher];
 }
