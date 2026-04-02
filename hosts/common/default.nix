@@ -21,6 +21,7 @@
     ./locale.nix
     ./printing.nix
     ./killall.nix
+    ./git.nix
 
     # pipewire things
     ./audio
