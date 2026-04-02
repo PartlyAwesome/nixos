@@ -7,7 +7,7 @@
   gameDir = celesteDir + "/game";
   everestDir = celesteDir + "/everest";
 in {
-  hm.home.packages = with pkgs; [
+  home-pkgs = with pkgs; [
     (
       (celestegame.overrideAttrs (_: {
         env = {

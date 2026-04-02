@@ -1,5 +1,6 @@
 {pkgs, ...}: {
-  hm.home.packages = with pkgs; [
+  user.extraGroups = ["input"];
+  home-pkgs = with pkgs; [
     crossmacro
   ];
 }

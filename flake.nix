@@ -25,6 +25,8 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
     xremap-flake.url = "github:xremap/nix-flake";
+    mixid.url = "github:leguteape/MixiD?dir=Nix";
+    mixid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {

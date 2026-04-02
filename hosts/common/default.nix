@@ -21,6 +21,7 @@
     ./locale.nix
     ./printing.nix
     ./killall.nix
+    ./git.nix
 
     # pipewire things
     ./audio
@@ -84,5 +85,8 @@
 
     # localsend
     ./localsend.nix
+
+    # mixid for audient id14
+    ./mixid.nix
   ];
 }
