@@ -4,6 +4,8 @@
   ...
 }: {
   imports = [
+    # horrible hack
+    ./pkgs-small.nix
     # nix settings
     ./settings.nix
 
@@ -23,12 +25,16 @@
     ./locale.nix
     ./printing.nix
     ./killall.nix
+    ./git.nix
 
     # pipewire things
     ./audio
 
     # fish and the like
     ./shell
+
+    # xdg things
+    ./xdg.nix
 
     # neovim
     ./nvim.nix
@@ -71,6 +77,7 @@
 
     # input remapping
     ./inputs.nix
+    ./macro.nix
 
     # appimages
     ./appimage.nix
@@ -83,6 +90,9 @@
 
     # localsend
     ./localsend.nix
+
+    # mixid for audient id14
+    ./mixid.nix
   ];
   environment.systemPackages = with pkgs; [inputs.slippi.packages.x86_64-linux.slippi-launcher];
 }

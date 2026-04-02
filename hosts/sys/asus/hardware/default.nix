@@ -5,8 +5,6 @@
 
   boot.initrd.availableKernelModules = ["usbhid" "sd_mod"];
 
-  zramSwap.enable = true;
-
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
@@ -20,4 +18,6 @@
     enable = true;
     powerOnBoot = true;
   };
+
+  host.hardware.ramsize = 24;
 }

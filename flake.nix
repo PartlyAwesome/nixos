@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
     nixprv.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
@@ -24,6 +25,9 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
     slippi.url = "github:ImYuugen/nix-ssb";
+    xremap-flake.url = "github:xremap/nix-flake";
+    mixid.url = "github:leguteape/MixiD?dir=Nix";
+    mixid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {

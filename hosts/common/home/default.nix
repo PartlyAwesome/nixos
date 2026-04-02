@@ -7,7 +7,6 @@
     #./session-vars.nix
     ./alacritty.nix
     ./vesktop.nix
-    ./git.nix
     ./flameshot.nix
     ./mpv.nix
     ./yt-dlp.nix
