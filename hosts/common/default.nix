@@ -1,8 +1,4 @@
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
     # horrible hack
     ./pkgs-small.nix
@@ -93,5 +89,8 @@
 
     # mixid for audient id14
     ./mixid.nix
+
+    # video players
+    ./mpv.nix
   ];
 }
