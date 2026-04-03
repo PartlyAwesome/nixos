@@ -633,6 +633,27 @@
         "type": "github"
       }
     },
+    "posy-cursor": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775181340,
+        "narHash": "sha256-pD9YZ4KhlfxUCv/Bj1rWmv2WsZTEsVU+RZbGtWvaox4=",
+        "owner": "PartlyAwesome",
+        "repo": "posys-cursor-scalable",
+        "rev": "9257c5f3168dbade5b592b3cef3de984bf5d465f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PartlyAwesome",
+        "ref": "nixify",
+        "repo": "posys-cursor-scalable",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "apollo-flake": "apollo-flake",
@@ -647,6 +668,7 @@
         "nixpkgs-small": "nixpkgs-small",
         "nixprv": "nixprv",
         "nvf": "nvf",
+        "posy-cursor": "posy-cursor",
         "sops-nix": "sops-nix",
         "xremap-flake": "xremap-flake",
         "zen-browser": "zen-browser"

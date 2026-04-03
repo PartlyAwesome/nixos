@@ -1,11 +1,9 @@
 {
+  inputs,
   pkgs,
-  lib,
   ...
 }: let
-  stdenvNoCC = pkgs.stdenvNoCC;
-  fetchFromGitHub = pkgs.fetchFromGitHub;
-  posy-scalable = pkgs.callPackage ./posy-scalable.nix {inherit lib stdenvNoCC fetchFromGitHub;};
+  posy-scalable = inputs.posy-cursor.packages.${pkgs.stdenv.hostPlatform.system}.default;
   theme-name = "posys_cursor_scalable_mono_black";
 in {
   environment.systemPackages = with pkgs; [xsettingsd xrdb posy-scalable];
