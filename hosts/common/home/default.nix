@@ -8,7 +8,6 @@
     ./alacritty.nix
     ./vesktop.nix
     ./flameshot.nix
-    ./mpv.nix
     ./yt-dlp.nix
     ./rga.nix
     ./bat.nix
