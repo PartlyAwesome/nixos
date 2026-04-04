@@ -1,4 +1,8 @@
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     # horrible hack
     ./pkgs-small.nix
@@ -49,6 +53,7 @@
 
     # theming
     ./catppuccin.nix
+    ./cursor.nix
 
     # find things
     ./locate.nix

@@ -27,6 +27,8 @@
     xremap-flake.url = "github:xremap/nix-flake";
     mixid.url = "github:leguteape/MixiD?dir=Nix";
     mixid.inputs.nixpkgs.follows = "nixpkgs";
+    posy-cursor.url = "github:PartlyAwesome/posys-cursor-scalable/nixify";
+    posy-cursor.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {
