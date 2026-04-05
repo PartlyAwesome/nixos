@@ -640,11 +640,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775181340,
-        "narHash": "sha256-pD9YZ4KhlfxUCv/Bj1rWmv2WsZTEsVU+RZbGtWvaox4=",
+        "lastModified": 1775317308,
+        "narHash": "sha256-jUNFFNn3cNH2W2V3uTyQG7gc9jxR3Vz9KMxJ1KWvIAQ=",
         "owner": "PartlyAwesome",
         "repo": "posys-cursor-scalable",
-        "rev": "9257c5f3168dbade5b592b3cef3de984bf5d465f",
+        "rev": "42db25348d4e6c2918aa8484f41d41c05d176779",
         "type": "github"
       },
       "original": {
