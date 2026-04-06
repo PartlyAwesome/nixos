@@ -60,7 +60,7 @@
     # notes
     ./obsidian.nix
 
-    #./flatpak.nix
+    ./flatpak.nix
 
     # remove xterm
     ./rem-xterm.nix
