@@ -19,8 +19,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    chromium
-    google-chrome
     wget
     unzip
     obs-studio
