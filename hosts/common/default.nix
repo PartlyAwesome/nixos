@@ -32,6 +32,9 @@
     # xdg things
     ./xdg.nix
 
+    # browsers
+    ./browsers
+
     # neovim
     ./nvim.nix
 

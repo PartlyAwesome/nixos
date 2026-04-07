@@ -2,8 +2,6 @@
   imports = [
     ./proton
     ./catppuccin.nix
-    #./firefox.nix
-    ./zen.nix
     #./session-vars.nix
     ./alacritty.nix
     ./vesktop.nix
