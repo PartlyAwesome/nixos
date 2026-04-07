@@ -1,12 +1,12 @@
 {nixpkgs, ...} @ inputs: let
-  lib = nixpkgs.lib;
+  lib = nixpkgs.lib.extend (import ./utils.nix);
   hosts = builtins.attrNames (builtins.readDir ./sys);
   user = "hayley";
   system = "x86_64-linux";
   setupHost = host: modules:
     lib.nixosSystem {
       specialArgs = {
-        inherit inputs;
+        inherit inputs lib;
       };
       system = system;
       modules = lib.flatten modules;
