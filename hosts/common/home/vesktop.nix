@@ -38,7 +38,6 @@
           showWithoutHover = true;
           trackSelf = true;
         };
-        characterCounter.enable = true;
         ClearURLs.enable = true;
         copyStickerLinks.enable = true;
         crashHandler.enable = true;
