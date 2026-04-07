@@ -29,6 +29,10 @@
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
     dms-plugins.url = "github:AvengeMedia/dms-plugin-registry";
     dms-plugins.inputs.nixpkgs.follows = "nixpkgs";
+    mixid.url = "github:leguteape/MixiD?dir=Nix";
+    mixid.inputs.nixpkgs.follows = "nixpkgs";
+    posy-cursor.url = "github:PartlyAwesome/posys-cursor-scalable/nixify";
+    posy-cursor.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {

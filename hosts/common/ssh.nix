@@ -10,6 +10,7 @@
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
       AllowUsers = [config.user.name];
+      GatewayPorts = "yes";
     };
     authorizedKeysFiles = map builtins.toString config.keys.pub-keys;
   };

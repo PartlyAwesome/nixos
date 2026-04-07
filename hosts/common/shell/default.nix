@@ -22,5 +22,6 @@
     cat = "bat --paging=never";
     brg = "batgrep --paging=never";
     pb = "prettybat --paging=never";
+    ytdl = "yt-dlp";
   };
 }

@@ -5,6 +5,7 @@
 }: {
   imports = [inputs.dms-plugins.modules.default];
   nixpkgs.overlays = [inputs.quickshell.overlays.default];
+  user.extraGroups = ["greeter"];
   programs = {
     niri.enable = true;
     dms-shell = {

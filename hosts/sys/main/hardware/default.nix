@@ -6,8 +6,6 @@
 
   boot.kernelModules = ["v4l2loopback"];
 
-  zramSwap.enable = true;
-
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
@@ -21,4 +19,6 @@
     enable = true;
     powerOnBoot = true;
   };
+
+  host.hardware.ramsize = 64;
 }

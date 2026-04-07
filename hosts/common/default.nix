@@ -21,6 +21,7 @@
     ./locale.nix
     ./printing.nix
     ./killall.nix
+    ./git.nix
 
     # pipewire things
     ./audio
@@ -30,6 +31,9 @@
 
     # xdg things
     ./xdg.nix
+
+    # browsers
+    ./browsers
 
     # neovim
     ./nvim.nix
@@ -49,6 +53,7 @@
 
     # theming
     ./catppuccin.nix
+    ./cursor.nix
 
     # find things
     ./locate.nix
@@ -59,7 +64,7 @@
     # notes
     ./obsidian.nix
 
-    #./flatpak.nix
+    ./flatpak.nix
 
     # remove xterm
     ./rem-xterm.nix
@@ -85,5 +90,11 @@
 
     # localsend
     ./localsend.nix
+
+    # mixid for audient id14
+    ./mixid.nix
+
+    # video players
+    ./mpv.nix
   ];
 }

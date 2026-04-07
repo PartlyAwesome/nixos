@@ -1,6 +1,6 @@
 {pkgs, ...}: {
-  user.extraGroups = ["input"];
   home-pkgs = with pkgs; [
-    crossmacro
+    chromium
+    google-chrome
   ];
 }

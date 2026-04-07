@@ -1,16 +1,11 @@
 {pkgs, ...}: {
   imports = [
-    ./cursor.nix
     ./proton
     ./catppuccin.nix
-    #./firefox.nix
-    ./zen.nix
     #./session-vars.nix
     ./alacritty.nix
     ./vesktop.nix
-    ./git.nix
     ./flameshot.nix
-    ./mpv.nix
     ./yt-dlp.nix
     ./rga.nix
     ./bat.nix
@@ -24,8 +19,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    chromium
-    google-chrome
     wget
     unzip
     obs-studio
