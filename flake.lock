@@ -640,16 +640,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1775317308,
-        "narHash": "sha256-jUNFFNn3cNH2W2V3uTyQG7gc9jxR3Vz9KMxJ1KWvIAQ=",
-        "owner": "PartlyAwesome",
+        "lastModified": 1775672286,
+        "narHash": "sha256-w2zx1wFXWuIkMuzRiYbwQ49/PUpfBDxlhckBRV8CWXs=",
+        "owner": "Morxemplum",
         "repo": "posys-cursor-scalable",
-        "rev": "42db25348d4e6c2918aa8484f41d41c05d176779",
+        "rev": "e2aea7ca0d531ee1f80da963cb512eaeb3e25eaa",
         "type": "github"
       },
       "original": {
-        "owner": "PartlyAwesome",
-        "ref": "nixify",
+        "owner": "Morxemplum",
         "repo": "posys-cursor-scalable",
         "type": "github"
       }
