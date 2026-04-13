@@ -5,6 +5,12 @@
   ];
 
   boot.kernelModules = ["v4l2loopback"];
+  boot.initrd.availableKernelModules = [
+    "nvidia_drm"
+    "nvidia_modeset"
+    "nvidia"
+    "nvidia_uvm"
+  ];
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
