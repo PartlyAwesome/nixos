@@ -21,7 +21,6 @@
   home.packages = with pkgs; [
     wget
     unzip
-    obs-studio
     gimp
     nurl
     catppuccin-kde
