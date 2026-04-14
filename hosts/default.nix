@@ -8,7 +8,7 @@
       specialArgs = {
         inherit inputs lib;
       };
-      system = system;
+      inherit system;
       modules = lib.flatten modules;
     };
 in
@@ -26,7 +26,7 @@ in
         ./sys/${host}
         (map (lib.path.append ./.) (import ./sys/${host}/modules.nix))
         (lib.modules.importApply ./homeModule.nix {
-          user = user;
+          inherit user;
           modules = [
             ./sys/${host}/home
           ];
