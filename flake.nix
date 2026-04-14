@@ -31,7 +31,7 @@
     dms-plugins.inputs.nixpkgs.follows = "nixpkgs";
     mixid.url = "github:leguteape/MixiD?dir=Nix";
     mixid.inputs.nixpkgs.follows = "nixpkgs";
-    posy-cursor.url = "github:PartlyAwesome/posys-cursor-scalable/nixify";
+    posy-cursor.url = "github:Morxemplum/posys-cursor-scalable";
     posy-cursor.inputs.nixpkgs.follows = "nixpkgs";
   };
 

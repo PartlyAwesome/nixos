@@ -3,7 +3,14 @@
     ./hardware-configuration.nix
   ];
 
-  boot.initrd.availableKernelModules = ["usbhid" "sd_mod"];
+  boot.initrd.availableKernelModules = [
+    "usbhid"
+    "sd_mod"
+    "nvidia_drm"
+    "nvidia_modeset"
+    "nvidia"
+    "nvidia_uvm"
+  ];
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
