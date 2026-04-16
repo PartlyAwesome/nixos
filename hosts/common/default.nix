@@ -46,6 +46,7 @@
 
     # ssh & remote access
     ./ssh.nix
+    ./tailscale.nix
 
     # QMK support
     ./qmk.nix
