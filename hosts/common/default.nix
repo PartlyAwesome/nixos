@@ -16,6 +16,7 @@
 
     # common system stuff
     ./bootloader.nix
+    ./nixos-core.nix
     ./kernel.nix
     ./networking.nix
     ./locale.nix

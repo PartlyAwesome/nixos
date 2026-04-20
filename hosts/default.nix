@@ -1,18 +1,30 @@
 {nixpkgs, ...} @ inputs: let
+  inherit (builtins) attrNames readDir head;
+  inherit (lib) nixosSystem flatten genAttrs path;
+  inherit (lib.modules) importApply;
   lib = nixpkgs.lib.extend (import ./utils.nix);
-  hosts = builtins.attrNames (builtins.readDir ./sys);
+  hosts = attrNames (readDir ./sys);
   user = "hayley";
-  system = "x86_64-linux";
+  system = head lib.systems.flakeExposed;
   setupHost = host: modules:
-    lib.nixosSystem {
+    nixosSystem {
       specialArgs = {
         inherit inputs lib;
       };
       inherit system;
-      modules = lib.flatten modules;
+      modules = flatten modules;
     };
+  userModule = ./users/${user}.nix;
+  homeModule = host:
+    importApply ./homeModule.nix {
+      inherit user;
+      modules = [
+        ./sys/${host}/home
+      ];
+    };
+  hostModules = host: map (path.append ./.) (import ./sys/${host}/modules.nix);
 in
-  lib.genAttrs hosts (
+  genAttrs hosts (
     host:
       setupHost host
       [
@@ -24,13 +36,8 @@ in
           networking.hostName = host;
         }
         ./sys/${host}
-        (map (lib.path.append ./.) (import ./sys/${host}/modules.nix))
-        (lib.modules.importApply ./homeModule.nix {
-          inherit user;
-          modules = [
-            ./sys/${host}/home
-          ];
-        })
-        ./users/${user}.nix
+        (hostModules host)
+        (homeModule host)
+        userModule
       ]
   )
