@@ -93,6 +93,25 @@
       plugin = "${pkgs.deepfilternet}/lib/ladspa/libdeep_filter_ladspa.so";
       label = "deep_filter_mono";
       captureProps = {
+        "node.autoconnect" = "false";
+        "audio.position" = "MONO";
+      };
+      playbackProps = {
+        "audio.position" = "MONO";
+      };
+    };
+  createRNNoiseNode = {name}:
+    createFilterChain {
+      inherit name;
+      plugin = "${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so";
+      label = "noise_suppressor_mono";
+      control = {
+        "VAD Threshold (%)" = 50.0;
+        "VAD Grace Peroid (ms)" = 200;
+        "Retroactive VAD Grace (ms)" = 0;
+      };
+      captureProps = {
+        "node.autoconnect" = "false";
         "audio.position" = "MONO";
       };
       playbackProps = {
@@ -110,6 +129,7 @@
     hd6xx-eq-output = "HD6XX EQ Output";
     pre-eq = "Pre-EQ";
     dfn = "DeepFilterNet Noise Reduction";
+    rnnoise = "RNNoise Cancelling";
   };
 in {
   services.pipewire = {
@@ -155,6 +175,7 @@ in {
         threshold = -15.0;
       };
       "deepfilternet-noisereduction" = createDeepFilterNode {name = nodes.dfn;};
+      "rnnoise" = createRNNoiseNode {name = nodes.rnnoise;};
       # Pipewire does not currently load it's configuration in order
       # so the link-factory always errors out, so Wireplumber is needed
       # "40-link-null-sink" = {
