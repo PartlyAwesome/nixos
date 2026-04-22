@@ -4,16 +4,10 @@
   ];
   services = {
     xserver.enable = true;
-    desktopManager.plasma6 = {
-      enable = true;
-      # enable Qt5Integration = true;
-    };
+    desktopManager.plasma6.enable = true;
     displayManager = {
       defaultSession = "plasma";
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
+      plasma-login-manager.enable = true;
     };
   };
 }
