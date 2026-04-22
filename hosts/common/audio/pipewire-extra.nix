@@ -1,7 +1,11 @@
-{pkgs, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   loudmax_plugin = pkgs.runCommand "loudmax64.so" {
     nativeBuildInputs = [pkgs.autoPatchelfHook];
-    buildInputs = [pkgs.stdenv.cc.cc pkgs.stdenv.cc.libc];
+    buildInputs = with pkgs.stdenv.cc; [cc libc];
   } "cp ${./loudmax/loudmax64.so} $out && chmod +w $out && autoPatchelf $out";
   createAudioSink = name: {
     "context.objects" = [
@@ -24,9 +28,13 @@
       }
     ];
   };
-  createLoudMaxNode = {
+  createFilterChain = {
     name,
-    threshold,
+    plugin,
+    label,
+    control ? null,
+    captureProps ? {},
+    playbackProps ? {},
   }: {
     "context.modules" = [
       {
@@ -38,31 +46,59 @@
             nodes = [
               {
                 type = "ladspa";
-                name = name;
-                plugin = loudmax_plugin;
-                label = "ldmx_stereo";
-                control = {
-                  "Threshold (dB)" = threshold;
-                  "Output (dB)" = 0;
-                };
+                inherit name plugin label;
+                control = lib.mkIf (control != null) control;
               }
             ];
           };
-          "capture.props" = {
-            "node.name" = name;
-            "node.passive" = "true";
-            "node.autoconnect" = "false";
-            "audio.position" = "FL,FR";
-          };
-          "playback.props" = {
-            "node.name" = name;
-            "media.class" = "Audio/Source";
-            "audio.position" = "FL,FR";
-          };
+          "capture.props" =
+            {
+              "node.name" = "${name} Input";
+              "node.passive" = true;
+            }
+            // captureProps;
+          "playback.props" =
+            {
+              "node.name" = "${name} Output";
+              "media.class" = "Audio/Source";
+            }
+            // playbackProps;
         };
       }
     ];
   };
+  createLoudMaxNode = {
+    name,
+    threshold,
+  }:
+    createFilterChain {
+      inherit name;
+      plugin = loudmax_plugin;
+      label = "ldmx_stereo";
+      control = {
+        "Threshold (dB)" = threshold;
+        "Output (dB)" = 0;
+      };
+      captureProps = {
+        "node.autoconnect" = "false";
+        "audio.position" = "FL,FR";
+      };
+      playbackProps = {
+        "audio.position" = "FL,FR";
+      };
+    };
+  createDeepFilterNode = {name}:
+    createFilterChain {
+      inherit name;
+      plugin = "${pkgs.deepfilternet}/lib/ladspa/libdeep_filter_ladspa.so";
+      label = "deep_filter_mono";
+      captureProps = {
+        "audio.position" = "MONO";
+      };
+      playbackProps = {
+        "audio.position" = "MONO";
+      };
+    };
   nodes = {
     desktop-audio = "Desktop Audio";
     discord-audio = "Discord Audio";
@@ -73,6 +109,7 @@
     hd6xx-eq-input = "HD6XX EQ Input";
     hd6xx-eq-output = "HD6XX EQ Output";
     pre-eq = "Pre-EQ";
+    dfn = "DeepFilterNet Noise Reduction";
   };
 in {
   services.pipewire = {
@@ -117,6 +154,7 @@ in {
         name = nodes.game-compressor;
         threshold = -15.0;
       };
+      "deepfilternet-noisereduction" = createDeepFilterNode {name = nodes.dfn;};
       # Pipewire does not currently load it's configuration in order
       # so the link-factory always errors out, so Wireplumber is needed
       # "40-link-null-sink" = {
