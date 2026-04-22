@@ -29,6 +29,8 @@
     mixid.inputs.nixpkgs.follows = "nixpkgs";
     posy-cursor.url = "github:Morxemplum/posys-cursor-scalable";
     posy-cursor.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-core.url = "github:feel-co/nixos-core";
+    nixos-core.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {
