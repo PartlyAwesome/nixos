@@ -350,11 +350,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777389590,
-        "narHash": "sha256-HWbn7WASXsXGADiBDt6/k9U/HpGBEmoeqIOzrf+z2HE=",
+        "lastModified": 1777411657,
+        "narHash": "sha256-P7XjzOo8Cbuj5eBSO1LaQ1hOy3ir8rtUB64EFZ6kKiQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8ec5a714dbbeb3fda00bd9758175555ebbad4d07",
+        "rev": "af59809e9413ec8adb9597a8636491af356fe525",
         "type": "github"
       },
       "original": {
@@ -499,6 +499,26 @@
       "original": {
         "owner": "FlameFlag",
         "repo": "nixcord",
+        "type": "github"
+      }
+    },
+    "nixos-core": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777299456,
+        "narHash": "sha256-m3bA/aTNbJ3a+C+NVASJzHZ9XrnbxkJ3uXF1WWoDbc4=",
+        "owner": "feel-co",
+        "repo": "nixos-core",
+        "rev": "db4c2698c025ee3ad7f9fc2adac528102d36fc59",
+        "type": "github"
+      },
+      "original": {
+        "owner": "feel-co",
+        "repo": "nixos-core",
         "type": "github"
       }
     },
@@ -819,6 +839,7 @@
         "mixid": "mixid",
         "niri": "niri",
         "nixcord": "nixcord",
+        "nixos-core": "nixos-core",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-small": "nixpkgs-small",

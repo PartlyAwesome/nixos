@@ -7,11 +7,8 @@
     desktopManager.plasma6.enable = true;
     # Using DMS, we don't need SDDM
     # displayManager = {
-    # defaultSession = "plasma";
-    # sddm = {
-    #   enable = true;
-    #   wayland.enable = true;
-    # };
+    #   defaultSession = "plasma";
+    #   plasma-login-manager.enable = true;
     # };
   };
 }

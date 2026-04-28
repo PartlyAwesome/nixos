@@ -16,6 +16,7 @@
 
     # common system stuff
     ./bootloader.nix
+    ./nixos-core.nix
     ./kernel.nix
     ./networking.nix
     ./locale.nix
@@ -47,6 +48,7 @@
 
     # ssh & remote access
     ./ssh.nix
+    ./tailscale.nix
 
     # QMK support
     ./qmk.nix

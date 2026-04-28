@@ -64,6 +64,39 @@ end
 --
 -- }
 --
+function auto_connect_node_to_port(args)
+	print("find_port_from_node called")
+	print(args)
+	local node_om = ObjectManager({
+		Interest({
+			type = "node",
+			args["node"],
+			Constraint({ "media.class", "equals", "Audio/Source" }),
+		}),
+	})
+
+	function _connect()
+		print("_connect (node) called")
+		for node in node_om:iterate() do
+			print(node)
+			for k, v in pairs(node.properties) do
+				print("k: " .. k)
+				print("v: " .. v)
+			end
+			-- return node.properties["object.path"]
+			auto_connect_ports({
+				output = Constraint({ "object.path", "matches", node.properties["object.path"] .. "*" }),
+				input = args["input"],
+				connect = args["connect"],
+			})
+			return
+		end
+	end
+
+	node_om:connect("object-added", _connect)
+	node_om:activate()
+end
+
 function auto_connect_ports(args)
 	print("auto_connect_ports called")
 	print(args)
@@ -173,7 +206,7 @@ end
 -- Connect Desktop Audio -> Desktop Compressor
 auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Desktop Audio*" }),
-	input = Constraint({ "object.path", "matches", "Desktop Compressor*" }),
+	input = Constraint({ "object.path", "matches", "Desktop Compressor Input*" }),
 	connect = {
 		["FL"] = "FL",
 		["FR"] = "FR",
@@ -183,7 +216,7 @@ auto_connect_ports({
 -- Connect Discord Audio -> Discord Compressor
 auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Discord Audio*" }),
-	input = Constraint({ "object.path", "matches", "Discord Compressor*" }),
+	input = Constraint({ "object.path", "matches", "Discord Compressor Input*" }),
 	connect = {
 		["FL"] = "FL",
 		["FR"] = "FR",
@@ -193,7 +226,7 @@ auto_connect_ports({
 -- Connect Game Audio -> Game Compressor
 auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Game Audio*" }),
-	input = Constraint({ "object.path", "matches", "Game Compressor*" }),
+	input = Constraint({ "object.path", "matches", "Game Compressor Input*" }),
 	connect = {
 		["FL"] = "FL",
 		["FR"] = "FR",
@@ -202,7 +235,7 @@ auto_connect_ports({
 
 -- Connect Desktop Compressor -> Pre-EQ
 auto_connect_ports({
-	output = Constraint({ "object.path", "matches", "Desktop Compressor:capture*" }),
+	output = Constraint({ "object.path", "matches", "Desktop Compressor Output*" }),
 	input = Constraint({ "object.path", "matches", "Pre-EQ*" }),
 	connect = {
 		["FL"] = "FL",
@@ -212,7 +245,7 @@ auto_connect_ports({
 
 -- Connect Discord Compressor -> Pre-EQ
 auto_connect_ports({
-	output = Constraint({ "object.path", "matches", "Discord Compressor:capture*" }),
+	output = Constraint({ "object.path", "matches", "Discord Compressor Output*" }),
 	input = Constraint({ "object.path", "matches", "Pre-EQ*" }),
 	connect = {
 		["FL"] = "FL",
@@ -222,7 +255,7 @@ auto_connect_ports({
 
 -- Connect Game Compressor -> Pre-EQ
 auto_connect_ports({
-	output = Constraint({ "object.path", "matches", "Game Compressor:capture*" }),
+	output = Constraint({ "object.path", "matches", "Game Compressor Output*" }),
 	input = Constraint({ "object.path", "matches", "Pre-EQ*" }),
 	connect = {
 		["FL"] = "FL",
@@ -247,6 +280,24 @@ auto_connect_ports({
 	connect = {
 		["FL"] = "FL",
 		["FR"] = "FR",
+	},
+})
+
+-- Connect Audient ID14 Mic 1 -> RNNoise
+auto_connect_node_to_port({
+	node = Constraint({ "node.description", "equals", "Audient iD14 Mic/Line Input 1" }),
+	input = Constraint({ "object.path", "matches", "RNNoise Cancelling Input*" }),
+	connect = {
+		["MONO"] = "MONO",
+	},
+})
+
+-- Connect Audient ID14 Mic 1 -> DeepFilterNet
+auto_connect_node_to_port({
+	node = Constraint({ "node.description", "equals", "Audient iD14 Mic/Line Input 1" }),
+	input = Constraint({ "object.path", "matches", "DeepFilterNet Noise Reduction Input*" }),
+	connect = {
+		["MONO"] = "MONO",
 	},
 })
 
