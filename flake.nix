@@ -25,8 +25,15 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
     xremap-flake.url = "github:xremap/nix-flake";
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+    dms.inputs = {
+      nixpkgs.follows = "nixpkgs";
+      quickshell.follows = "quickshell";
+    };
     dms-plugins.url = "github:AvengeMedia/dms-plugin-registry";
     dms-plugins.inputs.nixpkgs.follows = "nixpkgs";
     mixid.url = "github:leguteape/MixiD?dir=Nix";
