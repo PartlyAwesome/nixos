@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
     nixprv.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
@@ -17,7 +17,8 @@
     };
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
-    apollo-flake.url = "github:nil-andreas/apollo-flake";
+    # apollo-flake.url = "github:zhuher/le-apollo-flake-fork";
+    # apollo-flake.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     nixcord.url = "github:FlameFlag/nixcord";
