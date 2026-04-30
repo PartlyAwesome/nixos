@@ -3,10 +3,26 @@
   pkgs,
   ...
 }: let
-  loudmax_plugin = pkgs.runCommand "loudmax64.so" {
+  loudmax_plugin_name = "loudmax64.so";
+  loudmax_plugin = pkgs.runCommand "loudmax" {
     nativeBuildInputs = [pkgs.autoPatchelfHook];
     buildInputs = with pkgs.stdenv.cc; [cc libc];
-  } "cp ${./loudmax/loudmax64.so} $out && chmod +w $out && autoPatchelf $out";
+  } "mkdir -p $out/lib/ladspa && cp ${./loudmax/${loudmax_plugin_name}} $out/lib/ladspa/${loudmax_plugin_name} && chmod -R +w $out && autoPatchelf $out";
+  plugins = {
+    loudmax = {
+      name = "loudmax64";
+      pkg = loudmax_plugin;
+    };
+    dfn = {
+      name = "libdeep_filter_ladspa";
+      pkg = pkgs.deepfilternet;
+    };
+    rnnoise = {
+      name = "librnnoise_ladspa";
+      pkg = pkgs.rnnoise-plugin;
+    };
+  };
+  pluginPackages = lib.mapAttrsToList (n: v: v.pkg) plugins;
   createAudioSink = name: {
     "context.objects" = [
       {
@@ -73,7 +89,7 @@
   }:
     createFilterChain {
       inherit name;
-      plugin = loudmax_plugin;
+      plugin = plugins.loudmax.name;
       label = "ldmx_stereo";
       control = {
         "Threshold (dB)" = threshold;
@@ -90,7 +106,7 @@
   createDeepFilterNode = {name}:
     createFilterChain {
       inherit name;
-      plugin = "${pkgs.deepfilternet}/lib/ladspa/libdeep_filter_ladspa.so";
+      plugin = plugins.dfn.name;
       label = "deep_filter_mono";
       captureProps = {
         "node.autoconnect" = "false";
@@ -103,7 +119,7 @@
   createRNNoiseNode = {name}:
     createFilterChain {
       inherit name;
-      plugin = "${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so";
+      plugin = plugins.rnnoise.name;
       label = "noise_suppressor_mono";
       control = {
         "VAD Threshold (%)" = 50.0;
@@ -133,6 +149,7 @@
   };
 in {
   services.pipewire = {
+    extraLadspaPackages = pluginPackages;
     extraConfig.pipewire = {
       "desktop-audio" = createAudioSink nodes.desktop-audio;
       "discord-audio" = createAudioSink nodes.discord-audio;
