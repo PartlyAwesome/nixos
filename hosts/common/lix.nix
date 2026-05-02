@@ -1,17 +1,18 @@
-{pkgs, ...}: {
-  nixpkgs.overlays = [
-    (final: prev: {
-      inherit
-        (prev.lixPackageSets.latest)
-        nixpkgs-review
-        nix-eval-jobs
-        nix-fast-build
-        colmena
-        ;
-    })
-  ];
+{inputs, ...}: {
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     inherit
+  #       (prev.lixPackageSets.latest)
+  #       nixpkgs-review
+  #       nix-eval-jobs
+  #       nix-fast-build
+  #       colmena
+  #       ;
+  #   })
+  # ];
+  imports = [inputs.lix-module.nixosModules.default];
 
-  nix.package = pkgs.lixPackageSets.latest.lix;
+  # nix.package = pkgs.lixPackageSets.latest.lix;
 
   nix.settings = {
     experimental-features = [
