@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  pkgs,
   ...
 }: let
   lixVersionJson = builtins.fromJSON (builtins.readFile (inputs.lix + "/version.json"));
@@ -23,7 +24,14 @@ in {
   imports = [
     (lib.modules.importApply "${inputs.lix-module}/nixos-module.nix" {
       inherit versionSuffix;
-      lix = inputs.lix;
+      lix = pkgs.applyPatches {
+        name = "rafware-lix";
+        src = inputs.lix;
+        patches = [
+          ./0001-bindings-linear-search-small-sets.patch
+          ./0002-primops-o1-tail-share-elems.patch
+        ];
+      };
     })
   ];
 
