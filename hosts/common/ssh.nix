@@ -2,9 +2,9 @@
   programs.ssh.startAgent = true;
   services.openssh = {
     enable = true;
-    ports = [
-      config.secrets.sshPort
-    ];
+    # ports = [
+    #   config.secrets.sshPort
+    # ];
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
