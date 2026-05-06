@@ -45,6 +45,9 @@
     # phone adb
     ./adb.nix
 
+    # ftp
+    ./ftp.nix
+
     # ssh & remote access
     ./ssh.nix
     ./tailscale.nix
