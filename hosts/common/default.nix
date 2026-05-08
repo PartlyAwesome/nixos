@@ -42,6 +42,8 @@
     # desktop environment
     ./kde.nix
 
+    ./peck.nix
+
     # phone adb
     ./adb.nix
 
