@@ -266,6 +266,34 @@
         "type": "github"
       }
     },
+    "lix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778147108,
+        "narHash": "sha256-pK0oP+HYH8XVPwZ6BB0DAC4ex0gCsj0FLH5182BBgBU=",
+        "rev": "7831c98a4db589c84cf730db23793afe3fd90f2d",
+        "type": "tarball",
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/7831c98a4db589c84cf730db23793afe3fd90f2d.tar.gz?rev=7831c98a4db589c84cf730db23793afe3fd90f2d"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.lix.systems/lix-project/lix/archive/main.tar.gz"
+      }
+    },
+    "lix-module": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773460763,
+        "narHash": "sha256-y9kC3ff89btXS8RD6pAtM50g0qtsim1I8HXBtgSqdbI=",
+        "rev": "5e56f5a973e24292b125dca9e9d506b0a91d6903",
+        "type": "tarball",
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/5e56f5a973e24292b125dca9e9d506b0a91d6903.tar.gz?rev=5e56f5a973e24292b125dca9e9d506b0a91d6903"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz"
+      }
+    },
     "mixid": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -590,6 +618,8 @@
         "cachyos": "cachyos",
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
+        "lix": "lix",
+        "lix-module": "lix-module",
         "mixid": "mixid",
         "nixcord": "nixcord",
         "nixos-core": "nixos-core",

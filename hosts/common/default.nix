@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   imports = [
     # horrible hack
     # ./pkgs-small.nix
@@ -9,7 +9,9 @@
     ./subs.nix
 
     # lix
-    ./lix.nix
+    # ./lix.nix
+    # (lib.utils.dirFiles ./lix)
+    ./lix
 
     # nh
     ./nh.nix
