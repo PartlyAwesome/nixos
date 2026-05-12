@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
-    nixprv.inputs.nixpkgs.follows = "nixpkgs";
+    # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    # nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
+    # nixprv.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -17,7 +17,8 @@
     };
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
-    apollo-flake.url = "github:nil-andreas/apollo-flake";
+    # apollo-flake.url = "github:zhuher/le-apollo-flake-fork";
+    # apollo-flake.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     nixcord.url = "github:FlameFlag/nixcord";
@@ -42,6 +43,10 @@
     posy-cursor.inputs.nixpkgs.follows = "nixpkgs";
     nixos-core.url = "github:feel-co/nixos-core";
     nixos-core.inputs.nixpkgs.follows = "nixpkgs";
+    lix.url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+    lix.flake = false;
+    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+    lix-module.flake = false;
   };
 
   outputs = inputs: {

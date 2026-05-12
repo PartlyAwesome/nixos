@@ -28,7 +28,7 @@ in
     host:
       setupHost host
       [
-        inputs.nixprv.nixosModules.default
+        # inputs.nixprv.nixosModules.default
         ./options.nix
         ./keys
         ./common

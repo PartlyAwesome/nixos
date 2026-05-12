@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   imports = [
     # horrible hack
     # ./pkgs-small.nix
@@ -9,7 +9,9 @@
     ./subs.nix
 
     # lix
-    ./lix.nix
+    # ./lix.nix
+    # (lib.utils.dirFiles ./lix)
+    ./lix
 
     # nh
     ./nh.nix
@@ -43,8 +45,13 @@
     ./kde.nix
     ./dms.nix
 
+    ./peck.nix
+
     # phone adb
     ./adb.nix
+
+    # ftp
+    ./ftp.nix
 
     # ssh & remote access
     ./ssh.nix
