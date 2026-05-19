@@ -17,6 +17,7 @@ in {
       music = h + "/music";
       pictures = h + "/pic";
       videos = h + "/vid";
+      projects = h + "/proj";
 
       /*
       dont need

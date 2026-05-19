@@ -4,5 +4,6 @@
     ./r2.nix
     ./srb2.nix
     ./celst.nix
+    ./hk.nix
   ];
 }
