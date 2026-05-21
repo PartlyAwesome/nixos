@@ -205,6 +205,14 @@ end
 
 -- Connect Desktop Audio -> Desktop Compressor
 auto_connect_ports({
+	output = Constraint({ "object.path", "matches", "Public Audio*" }),
+	input = Constraint({ "object.path", "matches", "Desktop Audio*" }),
+	connect = {
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Desktop Audio*" }),
 	input = Constraint({ "object.path", "matches", "Desktop Compressor Input*" }),
 	connect = {
