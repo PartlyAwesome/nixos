@@ -2,7 +2,8 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:flox/nixpkgs/unstable"; # cuda binaries require this
     # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     # nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
     # nixprv.inputs.nixpkgs.follows = "nixpkgs";
