@@ -5,7 +5,6 @@
     #./session-vars.nix
     ./alacritty.nix
     ./vesktop.nix
-    ./flameshot.nix
     ./yt-dlp.nix
     ./rga.nix
     ./bat.nix
