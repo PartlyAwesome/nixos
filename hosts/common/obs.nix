@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  environment.variables.OBS_VKCAPTURE = "1";
   hm.programs.obs-studio = {
     enable = true;
     package = with pkgs; (

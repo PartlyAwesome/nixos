@@ -138,6 +138,7 @@
     desktop-audio = "Desktop Audio";
     discord-audio = "Discord Audio";
     game-audio = "Game Audio";
+    public-audio = "Public Audio";
     desktop-compressor = "Desktop Compressor";
     discord-compressor = "Discord Compressor";
     game-compressor = "Game Compressor";
@@ -154,6 +155,7 @@ in {
       "desktop-audio" = createAudioSink nodes.desktop-audio;
       "discord-audio" = createAudioSink nodes.discord-audio;
       "game-audio" = createAudioSink nodes.game-audio;
+      "public-audio" = createAudioSink nodes.public-audio;
       "pre-eq" = createAudioSink nodes.pre-eq;
       "para-eq" = {
         "context.modules" = [
