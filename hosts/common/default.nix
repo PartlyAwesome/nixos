@@ -7,6 +7,7 @@
 
     # substitutors
     ./subs.nix
+    ./cuda.nix # cuda binary packaging & support
 
     # lix
     # ./lix.nix
