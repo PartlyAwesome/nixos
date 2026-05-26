@@ -13,7 +13,9 @@
       ])
     );
     plugins = with pkgs.obs-studio-plugins; [
-      advanced-scene-switcher
+      (advanced-scene-switcher.overrideAttrs (old: {
+        buildInputs = old.buildInputs ++ [pkgs.cudaPackages.cudatoolkit];
+      }))
       distroav
       droidcam-obs
       obs-3d-effect
