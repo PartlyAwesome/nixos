@@ -1,20 +1,18 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
-  getKeyFile = name: pkgs.writeText "${name}.pub" (builtins.readFile ./${name}.pub);
 in {
   options.keys = {
     x280 = lib.mkOption {
       type = lib.types.path;
-      default = getKeyFile "x280";
+      default = ./x280.pub;
       readOnly = true;
     };
     main = lib.mkOption {
       type = lib.types.path;
-      default = getKeyFile "main";
+      default = ./main.pub;
       readOnly = true;
     };
     pub-keys = lib.mkOption {
