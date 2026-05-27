@@ -12,6 +12,10 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin-palette = {
+      url = "github:catppuccin/palette";
+      flake = false;
+    };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs = {
       nixpkgs.follows = "nixpkgs";
