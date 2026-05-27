@@ -12,6 +12,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
+    catppuccin.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs = {
       nixpkgs.follows = "nixpkgs";
@@ -23,13 +24,22 @@
     # apollo-flake.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
+    nvf.inputs.flake-parts.follows = "flake-parts";
     nixcord.url = "github:FlameFlag/nixcord";
+    nixcord.inputs.nixpkgs.follows = "nixpkgs";
+    nixcord.inputs.nixpkgs-nixcord.follows = "nixpkgs";
+    nixcord.inputs.flake-parts.follows = "flake-parts";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
+    cachyos.inputs.nixpkgs.follows = "nixpkgs";
+    cachyos.inputs.flake-parts.follows = "flake-parts";
     xremap-flake.url = "github:xremap/nix-flake";
+    xremap-flake.inputs.nixpkgs.follows = "nixpkgs";
+    xremap-flake.inputs.flake-parts.follows = "flake-parts";
     mixid.url = "github:leguteape/MixiD?dir=Nix";
     mixid.inputs.nixpkgs.follows = "nixpkgs";
+    mixid.inputs.flake-parts.follows = "flake-parts";
     posy-cursor.url = "github:Morxemplum/posys-cursor-scalable";
     posy-cursor.inputs.nixpkgs.follows = "nixpkgs";
     nixos-core.url = "github:feel-co/nixos-core";
@@ -38,6 +48,8 @@
     lix.flake = false;
     lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
     lix-module.flake = false;
+    flake-parts.url = "github:hercules-ci/flake-parts"; # for input deduplication
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   };
 
   outputs = inputs: {
