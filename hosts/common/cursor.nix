@@ -4,10 +4,11 @@
   ...
 }: let
   theme-name = "posys_cursor_scalable_mono_black";
+
+  posy-scalable = pkgs.callPackage "${inputs.posy-cursor}/package.nix" {};
 in {
-  nixpkgs.overlays = [inputs.posy-cursor.overlays.default];
   environment.systemPackages = with pkgs; [xsettingsd xrdb posy-scalable];
-  home-pkgs = with pkgs; [posy-scalable];
+  home-pkgs = [posy-scalable];
   xdg.icons = {
     enable = true; # it is enabled by default, but there is never any harm in doubling down
     fallbackCursorThemes = [theme-name];
@@ -16,7 +17,7 @@ in {
   hm.home.pointerCursor = {
     enable = true;
     name = theme-name;
-    package = pkgs.posy-scalable;
+    package = posy-scalable;
 
     dotIcons.enable = true;
     gtk.enable = true;
