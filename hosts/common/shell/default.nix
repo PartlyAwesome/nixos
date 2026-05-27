@@ -3,13 +3,23 @@
   config,
   pkgs,
   ...
-}: {
-  programs.bash.interactiveShellInit = builtins.readFile (
-    pkgs.replaceVars ./startFish.sh {
-      ps = lib.getExe' pkgs.procps "ps";
-      fish = lib.getExe pkgs.fish;
-    }
-  );
+}:
+let
+  ps = lib.getExe' pkgs.procps "ps";
+  fish = lib.getExe pkgs.fish;
+
+  interactiveShellInit = ''
+      if [[ $(${ps} --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]; then
+      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+      exec ${fish} $LOGIN_OPTION
+    fi
+
+  '';
+in
+{
+  programs.bash = {
+    inherit interactiveShellInit;
+  };
   hm = {
     home.shellAliases = config.environment.shellAliases;
     programs.fish = {
