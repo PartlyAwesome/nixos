@@ -24,14 +24,7 @@ in {
   imports = [
     (lib.modules.importApply "${inputs.lix-module}/nixos-module.nix" {
       inherit versionSuffix;
-      lix = pkgs.applyPatches {
-        name = "rafware-lix";
-        src = inputs.lix;
-        patches = [
-          ./0001-bindings-linear-search-small-sets.patch
-          ./0002-primops-o1-tail-share-elems.patch
-        ];
-      };
+      lix = inputs.lix;
     })
   ];
 
@@ -48,6 +41,29 @@ in {
     auto-optimise-store = true;
     narinfo-cache-negative-ttl = 0;
   };
-
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (
+        final: prev:
+        let
+          lixPackage = final.callPackage (inputs.lix + "/package.nix") ({
+            inherit versionSuffix;
+            stdenv = final.clangStdenv;
+          });
+        in
+        {
+          lix = lixPackage.overrideAttrs {
+            patches = [
+              ./0001-bindings-linear-search-small-sets.patch
+              ./0002-primops-o1-tail-share-elems.patch
+            ];
+            # disable cross chain for testing
+            buildTestEnv = null;
+            buildTestShell = null;
+          };
+        }
+      )
+    ];
+  };
 }
