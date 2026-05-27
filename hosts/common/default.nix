@@ -105,5 +105,8 @@
 
     # video players
     ./mpv.nix
+
+    # documentation
+    ./documentation.nix
   ];
 }

@@ -11,5 +11,6 @@
 
     vesktop.enable = false;
     cursors.enable = false;
+    sources.palette = inputs.catppuccin-palette;
   };
 }
