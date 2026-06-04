@@ -8,9 +8,10 @@
   services = {
     xserver.enable = true;
     desktopManager.plasma6.enable = true;
-    displayManager = {
-      defaultSession = "plasma";
-      plasma-login-manager.enable = true;
-    };
+    # Using DMS, we don't need SDDM
+    # displayManager = {
+    #   defaultSession = "plasma";
+    #   plasma-login-manager.enable = true;
+    # };
   };
 }

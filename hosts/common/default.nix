@@ -44,6 +44,7 @@
 
     # desktop environment
     ./kde.nix
+    ./dms.nix
 
     ./peck.nix
 
