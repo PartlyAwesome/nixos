@@ -9,18 +9,6 @@
     lib.optionalString (!lixVersionJson.official_release)
     "-pre${builtins.substring 0 8 lix.lastModifiedDate or lix.lastModified or "19700101"}-dev_${lix.shortRev or lix.dirtyShortRev or "dirty"}-raf-patched";
 in {
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     inherit
-  #       (prev.lixPackageSets.latest)
-  #       nixpkgs-review
-  #       nix-eval-jobs
-  #       nix-fast-build
-  #       colmena
-  #       ;
-  #   })
-  # ];
-  # imports = [inputs.lix-module.nixosModules.default];
   imports = [
     (lib.modules.importApply "${inputs.lix-module}/nixos-module.nix" {
       inherit versionSuffix;
@@ -35,8 +23,7 @@ in {
     })
   ];
 
-  # nix.package = pkgs.lixPackageSets.latest.lix;
-
+  documentation.nixos.enable = false;
   nix.settings = {
     experimental-features = [
       "nix-command"

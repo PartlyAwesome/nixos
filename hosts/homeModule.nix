@@ -2,7 +2,6 @@
   user,
   modules,
 }: {
-  config,
   lib,
   inputs,
   ...
@@ -12,6 +11,7 @@
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" user])
     (lib.mkAliasOptionModule ["home-pkgs"] ["hm" "home" "packages"])
   ];
+  hm.manual.manpages.enable = false;
   home-manager = {
     extraSpecialArgs = {
       inherit inputs;
