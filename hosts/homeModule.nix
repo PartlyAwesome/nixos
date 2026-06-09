@@ -2,7 +2,6 @@
   user,
   modules,
 }: {
-  config,
   lib,
   inputs,
   ...
