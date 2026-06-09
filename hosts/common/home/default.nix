@@ -23,7 +23,7 @@
     gimp
     nurl
     catppuccin-kde
-    bitwarden-desktop
+    # bitwarden-desktop
     bitwarden-cli
     moonlight-qt
     fastfetch
