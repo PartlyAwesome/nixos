@@ -47,6 +47,9 @@
 
     ./peck.nix
 
+    # partition and disk formatting
+    ./format.nix
+
     # phone adb
     ./adb.nix
 
