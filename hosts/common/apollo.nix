@@ -24,4 +24,6 @@
     openFirewall = true;
     autoStart = true;
   };
+  user.extraGroups = ["uinput"];
+  hardware.uinput.enable = true;
 }
