@@ -5,35 +5,63 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:flox/nixpkgs/unstable"; # cuda binaries require this
     # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+
     # nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
     # nixprv.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
+
     catppuccin.url = "github:catppuccin/nix";
+
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs = {
       nixpkgs.follows = "nixpkgs";
       home-manager.follows = "home-manager";
     };
+
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
+
     # apollo-flake.url = "github:zhuher/le-apollo-flake-fork";
     # apollo-flake.inputs.nixpkgs.follows = "nixpkgs";
+
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
+
     nixcord.url = "github:FlameFlag/nixcord";
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     xremap-flake.url = "github:xremap/nix-flake";
+
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+    dms.inputs.nixpkgs.follows = "nixpkgs";
+
+    dms-plugins.url = "github:AvengeMedia/dms-plugin-registry";
+    dms-plugins.inputs.nixpkgs.follows = "nixpkgs";
+
     mixid.url = "github:leguteape/MixiD?dir=Nix";
     mixid.inputs.nixpkgs.follows = "nixpkgs";
+
     posy-cursor.url = "github:Morxemplum/posys-cursor-scalable";
     posy-cursor.inputs.nixpkgs.follows = "nixpkgs";
+
     nixos-core.url = "github:feel-co/nixos-core";
     nixos-core.inputs.nixpkgs.follows = "nixpkgs";
+
     lix.url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
     lix.flake = false;
     lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
