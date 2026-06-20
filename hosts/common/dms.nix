@@ -7,7 +7,7 @@
   nix.subs.keys = ["niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="];
   imports = with inputs; [
     dms.nixosModules.greeter
-    dms-plugins.modules.default
+    dms-plugins.nixosModules.default
     niri.nixosModules.niri
   ];
   hm.imports = with inputs; [
