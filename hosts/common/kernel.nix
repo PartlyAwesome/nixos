@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -17,7 +16,7 @@
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = config.host.hardware.ramsize * 1024;
+      size = 64 * 1024;
     }
   ];
 }
