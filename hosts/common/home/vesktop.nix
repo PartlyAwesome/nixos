@@ -56,7 +56,7 @@
         fakeNitro.enable = true;
         favoriteGifSearch.enable = true;
         fixYoutubeEmbeds.enable = true;
-        friendsSince.enable = true;
+        friendshipRanks.enable = true;
         FullVCPFP.enable = true;
         gifPaste.enable = true;
         gitHubRepos.enable = true;
@@ -92,7 +92,10 @@
           enable = true;
           onlySnow = true;
         };
-        selfForward.enable = true;
+        betterForwards = {
+          enable = true;
+          selfForward = true;
+        };
         sendTimestamps.enable = true;
         showHiddenChannels.enable = true;
         showHiddenThings.enable = true;
