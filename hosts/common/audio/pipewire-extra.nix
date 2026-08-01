@@ -8,6 +8,7 @@
     nativeBuildInputs = [pkgs.autoPatchelfHook];
     buildInputs = with pkgs.stdenv.cc; [cc libc];
   } "mkdir -p $out/lib/ladspa && cp ${./loudmax/${loudmax_plugin_name}} $out/lib/ladspa/${loudmax_plugin_name} && chmod -R +w $out && autoPatchelf $out";
+
   plugins = {
     loudmax = {
       name = "loudmax64";
@@ -23,6 +24,7 @@
     };
   };
   pluginPackages = lib.mapAttrsToList (n: v: v.pkg) plugins;
+
   createAudioSink = name: {
     "context.objects" = [
       {
@@ -44,6 +46,7 @@
       }
     ];
   };
+
   createFilterChain = {
     name,
     plugin,
@@ -83,16 +86,14 @@
       }
     ];
   };
-  createLoudMaxNode = {
-    name,
-    threshold,
-  }:
+
+  createLoudMaxNode = name: threshold:
     createFilterChain {
       inherit name;
       plugin = plugins.loudmax.name;
       label = "ldmx_stereo";
       control = {
-        "Threshold (dB)" = threshold;
+        "Threshold (dB)" = -threshold;
         "Output (dB)" = 0;
       };
       captureProps = {
@@ -103,20 +104,24 @@
         "audio.position" = "FL,FR";
       };
     };
-  createDeepFilterNode = {name}:
+
+  createDeepFilterNode = name: channels: position:
     createFilterChain {
       inherit name;
       plugin = plugins.dfn.name;
-      label = "deep_filter_mono";
+      label = "deep_filter_${channels}";
       captureProps = {
         "node.autoconnect" = "false";
-        "audio.position" = "MONO";
+        "audio.position" = position;
       };
       playbackProps = {
-        "audio.position" = "MONO";
+        "audio.position" = position;
       };
     };
-  createRNNoiseNode = {name}:
+  createMonoDFNNode = name: createDeepFilterNode name "mono" "MONO";
+  createStereoDFNNode = name: createDeepFilterNode name "stereo" "FL,FR";
+
+  createRNNoiseNode = name:
     createFilterChain {
       inherit name;
       plugin = plugins.rnnoise.name;
@@ -134,67 +139,47 @@
         "audio.position" = "MONO";
       };
     };
-  nodes = {
-    desktop-audio = "Desktop Audio";
-    discord-audio = "Discord Audio";
-    game-audio = "Game Audio";
-    public-audio = "Public Audio";
-    desktop-compressor = "Desktop Compressor";
-    discord-compressor = "Discord Compressor";
-    game-compressor = "Game Compressor";
-    hd6xx-eq-input = "HD6XX EQ Input";
-    hd6xx-eq-output = "HD6XX EQ Output";
-    pre-eq = "Pre-EQ";
-    dfn = "DeepFilterNet Noise Reduction";
-    rnnoise = "RNNoise Cancelling";
+
+  createParaEQ = desc: path: input: output: {
+    "context.modules" = [
+      {
+        name = "libpipewire-module-parametric-equalizer";
+        args = {
+          "equalizer.filepath" = path;
+          "equalizer.description" = desc;
+          "audio.channels" = "2";
+          "audio.position" = "FL,FR";
+          "capture.props" = {
+            "node.name" = input;
+            "node.autoconnect" = "false";
+            "node.passive" = "true";
+            "monitor.passthrough" = "false";
+          };
+          "playback.props" = {
+            "node.name" = output;
+            "node.autoconnect" = "false";
+            "node.passive" = "true";
+          };
+        };
+      }
+    ];
   };
 in {
   services.pipewire = {
     extraLadspaPackages = pluginPackages;
     extraConfig.pipewire = {
-      "desktop-audio" = createAudioSink nodes.desktop-audio;
-      "discord-audio" = createAudioSink nodes.discord-audio;
-      "game-audio" = createAudioSink nodes.game-audio;
-      "public-audio" = createAudioSink nodes.public-audio;
-      "pre-eq" = createAudioSink nodes.pre-eq;
-      "para-eq" = {
-        "context.modules" = [
-          {
-            name = "libpipewire-module-parametric-equalizer";
-            args = {
-              "equalizer.filepath" = ./hd6xx.eq;
-              "equalizer.description" = "HD6XX EQ";
-              "audio.channels" = "2";
-              "audio.position" = "FL,FR";
-              "capture.props" = {
-                "node.name" = nodes.hd6xx-eq-input;
-                "node.autoconnect" = "false";
-                "node.passive" = "true";
-                "monitor.passthrough" = "false";
-              };
-              "playback.props" = {
-                "node.name" = nodes.hd6xx-eq-output;
-                "node.autoconnect" = "false";
-                "node.passive" = "true";
-              };
-            };
-          }
-        ];
-      };
-      "desktop-compressor" = createLoudMaxNode {
-        name = nodes.desktop-compressor;
-        threshold = -25.0;
-      };
-      "discord-compressor" = createLoudMaxNode {
-        name = nodes.discord-compressor;
-        threshold = -28.0;
-      };
-      "game-compressor" = createLoudMaxNode {
-        name = nodes.game-compressor;
-        threshold = -15.0;
-      };
-      "deepfilternet-noisereduction" = createDeepFilterNode {name = nodes.dfn;};
-      "rnnoise" = createRNNoiseNode {name = nodes.rnnoise;};
+      desktop-audio = createAudioSink "Desktop Audio";
+      discord-audio = createAudioSink "Discord Audio";
+      game-audio = createAudioSink "Game Audio";
+      public-audio = createAudioSink "Public Audio";
+      pre-eq = createAudioSink "Pre-EQ";
+      para-eq = createParaEQ "HD6XX EQ" ./hd6xx.eq "HD6XX EQ Input" "HD6XX EQ Output";
+      desktop-compressor = createLoudMaxNode "Desktop Compressor" 25.0;
+      discord-compressor = createLoudMaxNode "Discord Compressor" 28.0;
+      game-compressor = createLoudMaxNode "Game Compressor" 15.0;
+      dfn = createMonoDFNNode "Mic DeepFilterNet";
+      dfn-discord = createStereoDFNNode "Discord DeepFilterNet";
+      rnnoise = createRNNoiseNode "RNNoise Cancelling";
       # Pipewire does not currently load it's configuration in order
       # so the link-factory always errors out, so Wireplumber is needed
       # "40-link-null-sink" = {

@@ -172,7 +172,11 @@ function auto_connect_ports(args)
 					print("_i = ")
 					print(_i)
 					-- Iterate through all the input ports with the correct channel name
-					for input in input_om:iterate({ Constraint({ "audio.channel", "equals", input_name }) }) do
+					for input in
+						input_om:iterate({
+							Constraint({ "audio.channel", "equals", input_name }),
+						})
+					do
 						print("input = ")
 						print(input)
 						-- Link all the nodes
@@ -205,14 +209,6 @@ end
 
 -- Connect Desktop Audio -> Desktop Compressor
 auto_connect_ports({
-	output = Constraint({ "object.path", "matches", "Public Audio*" }),
-	input = Constraint({ "object.path", "matches", "Desktop Audio*" }),
-	connect = {
-		["FL"] = "FL",
-		["FR"] = "FR",
-	},
-})
-auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Desktop Audio*" }),
 	input = Constraint({ "object.path", "matches", "Desktop Compressor Input*" }),
 	connect = {
@@ -221,9 +217,29 @@ auto_connect_ports({
 	},
 })
 
--- Connect Discord Audio -> Discord Compressor
+-- Connect Public Audio -> Desktop Compressor
+auto_connect_ports({
+	output = Constraint({ "object.path", "matches", "Public Audio*" }),
+	input = Constraint({ "object.path", "matches", "Desktop Compressor Input*" }),
+	connect = {
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+
+-- Connect Discord Audio -> Discord DFN
 auto_connect_ports({
 	output = Constraint({ "object.path", "matches", "Discord Audio*" }),
+	input = Constraint({ "object.path", "matches", "Discord DeepFilterNet Input*" }),
+	connect = {
+		["FL"] = "FL",
+		["FR"] = "FR",
+	},
+})
+
+-- Connect Discord DFN -> Discord Compressor
+auto_connect_ports({
+	output = Constraint({ "object.path", "matches", "Discord DeepFilterNet Output*" }),
 	input = Constraint({ "object.path", "matches", "Discord Compressor Input*" }),
 	connect = {
 		["FL"] = "FL",
@@ -303,7 +319,7 @@ auto_connect_node_to_port({
 -- Connect Audient ID14 Mic 1 -> DeepFilterNet
 auto_connect_node_to_port({
 	node = Constraint({ "node.description", "equals", "Audient iD14 Mic/Line Input 1" }),
-	input = Constraint({ "object.path", "matches", "DeepFilterNet Noise Reduction Input*" }),
+	input = Constraint({ "object.path", "matches", "Mic DeepFilterNet Input*" }),
 	connect = {
 		["MONO"] = "MONO",
 	},
