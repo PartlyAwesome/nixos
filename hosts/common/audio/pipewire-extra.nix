@@ -110,6 +110,9 @@
       inherit name;
       plugin = plugins.dfn.name;
       label = "deep_filter_${channels}";
+      control = {
+        "Attenuation Limit (dB)" = 100;
+      };
       captureProps = {
         "node.autoconnect" = "false";
         "audio.position" = position;
