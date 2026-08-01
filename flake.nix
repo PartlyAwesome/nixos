@@ -4,6 +4,15 @@
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:flox/nixpkgs/unstable"; # cuda binaries require this
+    # nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
+    # nixpkgs-patch-onnxruntime-fix-1 = {
+    #   url = "https://github.com/NixOS/nixpkgs/pull/545542.diff";
+    #   flake = false;
+    # };
+    # nixpkgs-patch-onnxruntime-fix-2 = {
+    #   url = "https://github.com/NixOS/nixpkgs/pull/547077.diff";
+    #   flake = false;
+    # };
     # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     # nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
     # nixprv.inputs.nixpkgs.follows = "nixpkgs";
