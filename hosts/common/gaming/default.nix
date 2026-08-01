@@ -5,5 +5,6 @@
     ./srb2.nix
     ./celst.nix
     ./hk.nix
+    ./dolphin.nix
   ];
 }
