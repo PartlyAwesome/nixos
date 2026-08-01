@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -15,6 +15,7 @@
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     modesetting.enable = true;
     powerManagement.enable = true;
     open = false;
