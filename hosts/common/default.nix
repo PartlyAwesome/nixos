@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   imports = [
     # horrible hack
     # ./pkgs-small.nix
@@ -10,8 +10,6 @@
     ./cuda.nix # cuda binary packaging & support
 
     # lix
-    # ./lix.nix
-    # (lib.utils.dirFiles ./lix)
     ./lix
 
     # nh
@@ -45,7 +43,8 @@
     # desktop environment
     ./kde.nix
 
-    ./peck.nix
+    # discord
+    ./discord
 
     # partition and disk formatting
     ./format.nix
@@ -76,6 +75,7 @@
     # notes
     ./obsidian.nix
 
+    # i don't actually use flatpaks but i might as well have it
     ./flatpak.nix
 
     # remove xterm

@@ -1,8 +1,6 @@
 {inputs, ...}: {
-  imports = [
-    inputs.nixcord.homeModules.nixcord
-  ];
-  programs.nixcord = {
+  hm.imports = [inputs.nixcord.homeModules.nixcord];
+  hm.programs.nixcord = {
     enable = true;
     discord.vencord.enable = false;
     discord.equicord.enable = true;
@@ -113,7 +111,7 @@
         };
         timezones = {
           enable = true;
-          _24hTime = true;
+          twentyFourHourFormat = true;
         };
         translate.enable = true;
         typingIndicator = {

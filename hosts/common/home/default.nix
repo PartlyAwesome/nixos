@@ -2,9 +2,7 @@
   imports = [
     ./proton
     ./catppuccin.nix
-    #./session-vars.nix
     ./alacritty.nix
-    ./vesktop.nix
     ./yt-dlp.nix
     ./rga.nix
     ./bat.nix

@@ -32,7 +32,7 @@
     # apollo-flake.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
-    nixcord.url = "github:FlameFlag/nixcord";
+    nixcord.url = "github:4evy/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
