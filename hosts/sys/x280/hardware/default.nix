@@ -18,5 +18,13 @@
     powerOnBoot = true;
   };
 
+  hardware.trackpoint = {
+    enable = true;
+    device = "TPPS/2 Elan TrackPoint";
+    speed = 255;
+    sensitivity = 255;
+    emulateWheel = true;
+  };
+
   host.hardware.ramsize = 16;
 }
