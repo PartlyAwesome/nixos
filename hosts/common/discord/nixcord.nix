@@ -4,7 +4,7 @@
     enable = true;
     discord.vencord.enable = false;
     discord.equicord.enable = true;
-    discord.autoscroll.enable = true;
+    discord.commandLineArgs = ["--enable-blink-features=MiddleClickAutoscroll"];
     equibop.enable = true;
     equibop.autoscroll.enable = true;
     config = {
