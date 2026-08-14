@@ -13,7 +13,7 @@
     #   url = "https://github.com/NixOS/nixpkgs/pull/547077.diff";
     #   flake = false;
     # };
-    # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     # nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
     # nixprv.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
