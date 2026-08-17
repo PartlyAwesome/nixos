@@ -12,8 +12,9 @@
     # lix
     ./lix
 
-    # nh
+    # nix helper stuff
     ./nh.nix
+    ./develop.nix
 
     # common system stuff
     ./bootloader.nix
