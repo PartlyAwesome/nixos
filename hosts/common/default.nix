@@ -15,6 +15,7 @@
     # nix helper stuff
     ./nh.nix
     ./develop.nix
+    ./direnv.nix
 
     # common system stuff
     ./bootloader.nix
