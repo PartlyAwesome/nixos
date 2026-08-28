@@ -26,6 +26,11 @@
     notes.todo-comments.enable = true;
     visuals.blink-indent.enable = true;
 
+    clipboard = {
+      enable = true;
+      providers.wl-copy.enable = true;
+    };
+
     git = {
       enable = true;
       neogit.enable = true;
@@ -43,6 +48,11 @@
       trailspace.enable = true;
       visits.enable = true;
     };
+
+    # scrolling
+    options = {
+      scrolloff = 8;
+    };
     mini.animate = {
       enable = true;
       setupOpts = {
@@ -58,11 +68,6 @@
       };
     };
 
-    clipboard = {
-      enable = true;
-      providers.wl-copy.enable = true;
-    };
-
     # folding
     options = {
       foldcolumn = "1";
@@ -71,6 +76,20 @@
       foldenable = true;
     };
     ui.nvim-ufo.enable = true;
+
+    # file explorer
+    utility.oil-nvim = {
+      enable = true;
+      gitStatus.enable = true;
+    };
+    keymaps = [
+      {
+        key = "-";
+        mode = "n";
+        action = "<CMD>Oil<CR>";
+        desc = "Open Oil";
+      }
+    ];
 
     ui.nvim-highlight-colors = {
       enable = true;
@@ -89,6 +108,7 @@
     lsp = {
       enable = true;
       formatOnSave = true;
+      trouble.enable = true;
     };
 
     languages = {
@@ -215,10 +235,6 @@
       smart-splits.enable = true;
       undotree.enable = true;
       # vim-wakatime.enable = true;
-      oil-nvim = {
-        enable = true;
-        gitStatus.enable = true;
-      };
       motion = {
         precognition.enable = true;
         flash-nvim.enable = true;
