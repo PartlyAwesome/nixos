@@ -26,29 +26,39 @@
       obs-command-source
       obs-composite-blur
       obs-dir-watch-media
-      obs-dvd-screensaver
+      (obs-dvd-screensaver.overrideAttrs (old: {
+        env.NIX_CFLAGS_COMPILE = "-Wno-error=deprecated-declarations";
+      }))
       obs-freeze-filter
       obs-gradient-source
       obs-gstreamer
       input-overlay
       obs-livesplit-one
       obs-markdown
-      obs-move-transition
+      (obs-move-transition.overrideAttrs (old: {
+        env.NIX_CFLAGS_COMPILE = "-Wno-error=deprecated-declarations";
+      }))
       obs-multi-rtmp
       obs-mute-filter
       obs-noise
       obs-pipewire-audio-capture
       obs-plugin-countdown
       obs-recursion-effect
-      obs-replay-source
+      (obs-replay-source.overrideAttrs (old: {
+        env.NIX_CFLAGS_COMPILE = "-Wno-error=deprecated-declarations";
+      }))
       obs-retro-effects
       obs-rgb-levels
       obs-scale-to-sound
       obs-scene-as-transition
-      obs-shaderfilter
+      (obs-shaderfilter.overrideAttrs (old: {
+        env.NIX_CFLAGS_COMPILE = "-Wno-error=deprecated-declarations";
+      }))
       obs-source-clone
       obs-source-record
-      obs-source-switcher
+      (obs-source-switcher.overrideAttrs (old: {
+        env.NIX_CFLAGS_COMPILE = "-Wno-error=deprecated-declarations";
+      }))
       obs-stroke-glow-shadow
       obs-teleport
       obs-text-pthread
