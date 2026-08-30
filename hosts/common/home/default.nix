@@ -1,8 +1,4 @@
-{
-  pkgs,
-  pkgs_small,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./proton
     ./catppuccin.nix
@@ -27,7 +23,7 @@
     catppuccin-kde
     # bitwarden-desktop
     bitwarden-cli
-    pkgs_small.moonlight-qt
+    moonlight-qt
     fastfetch
     ffmpeg-full
     pinta
