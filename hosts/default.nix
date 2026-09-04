@@ -30,7 +30,6 @@ in
       [
         # inputs.nixprv.nixosModules.default
         ./options.nix
-        ./keys
         ./common
         {
           networking.hostName = host;

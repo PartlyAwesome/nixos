@@ -55,5 +55,6 @@
 
   outputs = inputs: {
     nixosConfigurations = import ./hosts inputs;
+    keys = import ./hosts/keys;
   };
 }
