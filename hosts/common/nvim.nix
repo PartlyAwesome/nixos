@@ -259,7 +259,12 @@ in {
       undotree.enable = true;
       # vim-wakatime.enable = true;
       motion = {
-        precognition.enable = true;
+        precognition = {
+          enable = true;
+          setupOpts = {
+            targetedMotionHints.enabled = false;
+          };
+        };
         flash-nvim.enable = true;
       };
     };
