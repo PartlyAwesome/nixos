@@ -4,8 +4,14 @@
   pkgs,
   ...
 }: let
-  writeTOML = (pkgs.formats.toml {}).generate; # for the love of god move this to somewhere else
-  groups = {auto-hlsearch = "auto-hlsearch";};
+  writeTOML = (pkgs.formats.toml {}).generate; # for the love of god move this to somewhere else.
+  groupNames = ["auto-hlsearch" "fuck-git"];
+  createAugroup = name: {
+    inherit name;
+    clear = true;
+  };
+  augroups = builtins.map createAugroup groupNames;
+  groups = lib.genAttrs groupNames (x: x);
 in {
   imports = with inputs; [
     nvf.nixosModules.default
@@ -33,12 +39,7 @@ in {
       providers.wl-copy.enable = true;
     };
 
-    augroups = with groups; [
-      {
-        name = auto-hlsearch;
-        clear = true;
-      }
-    ];
+    inherit augroups;
     autocmds = with groups; [
       {
         desc = "get rid of the stupid highlight";
@@ -51,6 +52,13 @@ in {
             end
           end
         '';
+      }
+      {
+        desc = "disable git commit message word wrap";
+        event = ["FileType"];
+        pattern = ["gitcommit"];
+        group = fuck-git;
+        command = "setlocal textwidth=0";
       }
     ];
 
