@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: let
+  writeTOML = (pkgs.formats.toml {}).generate; # for the love of god move this to somewhere else
   groups = {auto-hlsearch = "auto-hlsearch";};
 in {
   imports = with inputs; [
@@ -239,6 +240,13 @@ in {
         statix.enable = true;
         stylelint.enable = true;
         tombi.enable = true;
+      };
+      nvim-lint.linters.statix = let
+        config = writeTOML "statix.toml" {
+          disabled = ["repeated_keys"];
+        };
+      in {
+        args = ["--config ${config}"];
       };
     };
 
