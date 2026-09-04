@@ -21,7 +21,6 @@ in {
 
     statusline.lualine.enable = true;
     telescope.enable = true;
-    autocomplete.nvim-cmp.enable = true;
     undoFile.enable = true;
     comments.comment-nvim.enable = true;
     fzf-lua.enable = true;
@@ -58,6 +57,10 @@ in {
     git = {
       enable = true;
       neogit.enable = true;
+    };
+
+    autocomplete.blink-cmp = {
+      enable = true;
     };
 
     mini = {
