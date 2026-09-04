@@ -34,7 +34,6 @@
     gaming_g = createCombo [shift left_alt right_alt g];
     gaming_d = createCombo [shift left_alt right_alt d];
   };
-  setMode = mode: {set_mode = mode;};
   createCombo = lib.join "-";
 in {
   imports = [inputs.xremap-flake.nixosModules.default];
@@ -91,15 +90,15 @@ in {
       {
         name = "mode switches";
         remap = {
-          ${double_alt_g} = setMode gaming;
-          ${double_alt_d} = setMode default;
+          ${double_alt_g}.set_mode = gaming;
+          ${double_alt_d}.set_mode = default;
         };
       }
       {
         name = "game switches";
         remap = {
-          ${gaming_g} = setMode gaming;
-          ${gaming_d} = setMode deadlock;
+          ${gaming_g}.set_mode = gaming;
+          ${gaming_d}.set_mode = deadlock;
         };
         mode = gaming_modes;
       }
