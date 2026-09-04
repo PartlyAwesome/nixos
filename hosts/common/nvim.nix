@@ -3,7 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  groups = {auto-hlsearch = "auto-hlsearch";};
+in {
   imports = with inputs; [
     nvf.nixosModules.default
   ];
@@ -30,6 +32,27 @@
       enable = true;
       providers.wl-copy.enable = true;
     };
+
+    augroups = with groups; [
+      {
+        name = auto-hlsearch;
+        clear = true;
+      }
+    ];
+    autocmds = with groups; [
+      {
+        desc = "get rid of the stupid highlight";
+        event = ["CursorMoved"];
+        group = auto-hlsearch;
+        callback = lib.mkLuaInline ''
+          function ()
+            if vim.v.hlsearch == 1 and vim.fn.searchcount().exact_match == 0 then
+              vim.schedule(function () vim.cmd.nohlsearch() end)
+            end
+          end
+        '';
+      }
+    ];
 
     git = {
       enable = true;
