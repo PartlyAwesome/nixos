@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./noisetorch.nix
     ./qpwgraph.nix
     ./pipewire-extra.nix
   ];

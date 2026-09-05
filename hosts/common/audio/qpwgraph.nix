@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
+  home-pkgs = with pkgs; [
     qpwgraph
   ];
 }
