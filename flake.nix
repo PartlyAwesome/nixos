@@ -14,8 +14,6 @@
     #   flake = false;
     # };
     # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    # nixprv.url = "git+ssh://git@github.com/PartlyAwesome/nixprv.git";
-    # nixprv.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
