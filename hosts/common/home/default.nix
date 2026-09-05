@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./proton
-    ./catppuccin.nix
     ./alacritty.nix
     ./yt-dlp.nix
     ./rga.nix
