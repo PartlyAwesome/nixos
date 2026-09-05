@@ -1,15 +1,15 @@
 {nixpkgs, ...} @ inputs: let
+  inherit (nixpkgs) lib;
   inherit (builtins) attrNames readDir head;
   inherit (lib) nixosSystem flatten genAttrs path;
   inherit (lib.modules) importApply;
-  lib = nixpkgs.lib.extend (import ./utils.nix);
   hosts = attrNames (readDir ./sys);
   user = "hayley";
   system = head lib.systems.flakeExposed;
-  setupHost = host: modules:
+  setupHost = modules:
     nixosSystem {
       specialArgs = {
-        inherit inputs lib;
+        inherit inputs;
       };
       inherit system;
       modules = flatten modules;
@@ -26,9 +26,8 @@
 in
   genAttrs hosts (
     host:
-      setupHost host
+      setupHost
       [
-        # inputs.nixprv.nixosModules.default
         ./options.nix
         ./common
         {

@@ -53,8 +53,9 @@
     };
   };
 
-  outputs = inputs: {
+  outputs = {nixpkgs, ...} @ inputs: {
     nixosConfigurations = import ./hosts inputs;
     keys = import ./hosts/keys;
+    utils = import ./hosts/utils.nix nixpkgs.lib;
   };
 }

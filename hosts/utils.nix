@@ -1,13 +1,10 @@
-final: prev: let
-  inherit (prev) mapAttrsToList filterAttrs genAttrs;
-  inherit (prev.path) append;
-  utils = {
-    dirFiles = dir:
-      mapAttrsToList
-      (name: value: append dir name)
-      (filterAttrs (n: v: v == "regular") (builtins.readDir dir));
-    enableList = list: genAttrs list (_: true);
-  };
+lib: let
+  inherit (lib) mapAttrsToList filterAttrs genAttrs;
+  inherit (lib.path) append;
 in {
-  inherit utils;
+  dirFiles = dir:
+    mapAttrsToList
+    (name: _: append dir name)
+    (filterAttrs (_: v: v == "regular") (builtins.readDir dir));
+  enableList = list: genAttrs list (_: true);
 }

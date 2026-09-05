@@ -1,13 +1,15 @@
 {
-  lib,
+  inputs,
   pkgs,
   ...
-}: {
+}: let
+  inherit (inputs.self) utils;
+in {
   environment.variables.OBS_VKCAPTURE = "1";
   hm.programs.obs-studio = {
     enable = true;
     package = with pkgs; (
-      obs-studio.override (lib.utils.enableList [
+      obs-studio.override (utils.enableList [
         "cudaSupport"
         "decklinkSupport"
       ])

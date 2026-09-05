@@ -1,3 +1,3 @@
-{lib, ...}: {
-  imports = lib.utils.dirFiles ./enabled;
+{inputs, ...}: {
+  imports = inputs.self.utils.dirFiles ./enabled;
 }
