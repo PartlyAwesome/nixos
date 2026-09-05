@@ -37,7 +37,7 @@
           trackSelf = true;
         };
         characterCounter.enable = true;
-        ClearURLs.enable = true;
+        clearUrls.enable = true;
         copyStickerLinks.enable = true;
         crashHandler.enable = true;
         customIdle = {
@@ -55,7 +55,7 @@
         # favoriteGifSearch.enable = true;
         fixYoutubeEmbeds.enable = true;
         friendshipRanks.enable = true;
-        FullVCPFP.enable = true;
+        fullVcpfp.enable = true;
         gifPaste.enable = true;
         gitHubRepos.enable = true;
         greetStickerPicker = {
@@ -64,12 +64,12 @@
         };
         homeTyping.enable = true;
         implicitRelationships.enable = true;
-        IRememberYou.enable = true;
+        iRememberYou.enable = true;
         jumpTo.enable = true;
         loadingQuotes.enable = true;
         memberCount.enable = true;
         mentionAvatars.enable = true;
-        MutualGroupDMs.enable = true;
+        mutualGroupDms.enable = true;
         neverPausePreviews.enable = true;
         messageColors.enable = true;
         noF1.enable = true;
@@ -83,7 +83,7 @@
           notices = true;
         };
         replyTimestamp.enable = true;
-        ReviewDB.enable = true;
+        reviewDb.enable = true;
         roleColorEverywhere.enable = true;
         reverseImageSearch.enable = true;
         secretRingToneEnabler = {
