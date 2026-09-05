@@ -99,9 +99,6 @@
     # udev rules
     ./udev.nix
 
-    # secrets management
-    ./secrets
-
     # localsend
     ./localsend.nix
 
