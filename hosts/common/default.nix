@@ -77,7 +77,7 @@
     # notes
     ./obsidian.nix
 
-    # i don't actually use flatpaks but i might as well have it
+    # i need flatpak for dolphin, because nixpkgs dolphin doesn't work and crashes
     ./flatpak.nix
 
     # remove xterm
