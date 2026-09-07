@@ -27,6 +27,8 @@
 
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
+    canola-nvim.url = "github:barrettruth/canola.nvim";
+    canola-nvim.flake = false;
 
     nixcord.url = "github:4evy/nixcord";
 

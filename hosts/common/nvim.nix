@@ -113,6 +113,11 @@ in {
     ui.nvim-ufo.enable = true;
 
     # file explorer
+    pluginOverrides.oil-nvim = pkgs.vimUtils.buildVimPlugin {
+      pname = "oil-nvim";
+      version = "idk-lol";
+      src = inputs.canola-nvim;
+    };
     utility.oil-nvim = {
       enable = true;
       gitStatus.enable = true;
@@ -125,6 +130,16 @@ in {
         desc = "Open Oil";
       }
     ];
+
+    # guess-indent.nvim makes nvim more sane
+    lazy.plugins."guess-indent.nvim" = {
+      package = pkgs.vimPlugins.guess-indent-nvim;
+      setupModule = "guess-indent";
+      setupOpts = {
+        auto_cmd = true;
+        override_editorconfig = true;
+      };
+    };
 
     ui.nvim-highlight-colors = {
       enable = true;
@@ -285,17 +300,6 @@ in {
           };
         };
         flash-nvim.enable = true;
-      };
-    };
-
-    lazy.plugins = {
-      "guess-indent.nvim" = {
-        package = pkgs.vimPlugins.guess-indent-nvim;
-        setupModule = "guess-indent";
-        setupOpts = {
-          auto_cmd = true;
-          override_editorconfig = true;
-        };
       };
     };
   };

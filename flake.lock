@@ -41,6 +41,22 @@
         "type": "github"
       }
     },
+    "canola-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784577585,
+        "narHash": "sha256-eq575Ng+tGiOqRUwvoggypDCPOkVQNhHZ1Ot77REFRw=",
+        "owner": "barrettruth",
+        "repo": "canola.nvim",
+        "rev": "608cd79544c3adc853d0400f1f540e4f2aa4c024",
+        "type": "github"
+      },
+      "original": {
+        "owner": "barrettruth",
+        "repo": "canola.nvim",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -566,6 +582,7 @@
       "inputs": {
         "auto-cpufreq": "auto-cpufreq",
         "cachyos": "cachyos",
+        "canola-nvim": "canola-nvim",
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
         "lix": "lix",
@@ -577,29 +594,8 @@
         "nixpkgs": "nixpkgs_4",
         "nvf": "nvf",
         "posy-cursor": "posy-cursor",
-        "sops-nix": "sops-nix",
         "xremap-flake": "xremap-flake",
         "zen-browser": "zen-browser"
-      }
-    },
-    "sops-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1788337237,
-        "narHash": "sha256-gkSH8VUtCo6hnysNmb9DbTuDepH2t5pv+QWjP75xKAk=",
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "rev": "fbf759290e0cb0a98dfc813a4eb7d53ad1dacb57",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "type": "github"
       }
     },
     "systems": {
