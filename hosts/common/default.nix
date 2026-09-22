@@ -60,6 +60,7 @@
     # ssh & remote access
     ./ssh.nix
     ./tailscale.nix
+    ./zerotier.nix
 
     # QMK support
     ./qmk.nix
