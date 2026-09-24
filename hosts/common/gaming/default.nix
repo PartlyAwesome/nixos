@@ -6,5 +6,6 @@
     ./celst.nix
     ./hk.nix
     ./emu.nix
+    ./archi.nix
   ];
 }
