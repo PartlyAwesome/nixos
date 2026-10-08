@@ -39,6 +39,9 @@
     # browsers
     ./browsers
 
+    # karakeep
+    ./karakeep.nix
+
     # creative software
     ./creative
 
