@@ -39,6 +39,9 @@
     # browsers
     ./browsers
 
+    # creative software
+    ./creative
+
     # neovim
     ./nvim.nix
 
