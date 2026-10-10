@@ -50,6 +50,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
     };
+
+    helium.url = "github:schembriaiden/helium-browser-nix-flake";
+    helium.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {nixpkgs, ...} @ inputs: {
