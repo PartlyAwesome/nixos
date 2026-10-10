@@ -69,11 +69,25 @@ in {
 
     autocomplete.blink-cmp = {
       enable = true;
+      setupOpts = {
+        cmdline = {
+          keymap = {
+            "<Tab>" = lib.mkForce ["show_and_insert_or_accept_single" "select_next"];
+            "<S-Tab>" = lib.mkForce ["show_and_insert_or_accept_single" "select_prev"];
+          };
+          completion = {
+            list.selection = {
+              preselect = false;
+              auto_insert = true;
+            };
+            menu.auto_show = true;
+          };
+        };
+      };
     };
 
     mini = {
       ai.enable = true;
-      cmdline.enable = true;
       icons.enable = true;
       map.enable = true;
       move.enable = true;
