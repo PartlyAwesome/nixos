@@ -49,7 +49,7 @@
     ./nvim.nix
 
     # desktop environment
-    ./kde.nix
+    ./kde
 
     # discord
     ./discord
