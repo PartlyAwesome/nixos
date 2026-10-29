@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ./extra-drives.nix
+    ./custom-edid.nix
   ];
 
   boot.kernelModules = ["v4l2loopback"];
