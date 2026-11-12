@@ -8,4 +8,5 @@
     extest.enable = true;
     dedicatedServer.openFirewall = true;
   };
+  home-pkgs = [pkgs.protonup-qt];
 }
