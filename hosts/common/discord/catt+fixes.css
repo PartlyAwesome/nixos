@@ -11,31 +11,32 @@
   --chat-avatar-size: calc(
     var(--custom-message-margin-left-content-cozy) - 5px
   );
+  --space-8: 0px;
 }
 
-.buttonContainer_c19a55 {
+.buttonContainer_2i8Bfm {
   top: -8px;
 }
 
-.avatar_c19a55 {
+.avatar_2i8Bfm {
   left: 2.5px;
   border-radius: 5%;
 }
 
-.visual-refresh .buttons__74017 {
-  gap: 0;
-}
+/* .visual-refresh .buttons__74017 { */
+/*   gap: 0; */
+/* } */
 
-.buttonWrapper__24af7 svg {
-  height: 20px;
-  width: 20px;
-}
+/* .buttonWrapper__24af7 svg { */
+/*   height: 20px; */
+/*   width: 20px; */
+/* } */
 
-.avatarDecoration_c19a55 {
+.avatarDecoration_2i8Bfm {
   visibility: hidden;
 }
 
-.bar_c38106 {
+.bar_3zSH5d {
   height: 0px;
   display: none !important;
 }
