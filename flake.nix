@@ -8,6 +8,9 @@
 
     cachyos.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    musnix.url = "github:musnix/musnix";
+    musnix.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
