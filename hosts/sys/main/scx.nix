@@ -1,4 +1,4 @@
-let
+{pkgs, ...}: let
   scheds = {
     cosmos = {
       # see: https://wiki.cachyos.org/configuration/sched-ext/#scx_cosmos
@@ -19,9 +19,10 @@ let
   };
   active_scheduler = scheds.cake;
 in {
-  services.scx = {
+  services.scx-loader = {
     enable = true;
-    scheduler = active_scheduler.scheduler;
-    extraArgs = active_scheduler.args;
+    schedsPackages = [pkgs.scx.full];
+    config.default_sched = active_scheduler.scheduler;
+    # extraArgs = active_scheduler.args; TODO: make this compatible with scx-loader
   };
 }
