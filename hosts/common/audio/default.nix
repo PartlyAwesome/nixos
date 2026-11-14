@@ -4,6 +4,7 @@
     ./pipewire-extra.nix
     ./mixid.nix # mixid for audient id14
     ./mus.nix
+    ./yabridge.nix
   ];
 
   environment.systemPackages = with pkgs; [
