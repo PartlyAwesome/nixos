@@ -3,7 +3,7 @@
     enable = true;
     binfmt = true;
     package = pkgs.appimage-run.override {
-      extraPkgs = pkgs: [pkgs.curl];
+      extraPkgs = pkgs: with pkgs; [curl libgpg-error];
     };
   };
 }
