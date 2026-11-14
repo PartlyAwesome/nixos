@@ -2,6 +2,7 @@
   imports = [
     ./qpwgraph.nix
     ./pipewire-extra.nix
+    ./mixid.nix # mixid for audient id14
   ];
 
   environment.systemPackages = with pkgs; [
