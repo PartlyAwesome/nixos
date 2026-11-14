@@ -6,6 +6,7 @@
 }: {
   imports = [inputs.musnix.nixosModules.musnix];
 
+  user.extraGroups = ["audio"];
   musnix = {
     enable = true;
     alsaSeq.enable = true;
