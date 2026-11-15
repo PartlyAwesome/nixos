@@ -5,6 +5,7 @@
     ./mixid.nix # mixid for audient id14
     ./mus.nix
     ./yabridge.nix
+    ./bitwig.nix
   ];
 
   environment.systemPackages = with pkgs; [
