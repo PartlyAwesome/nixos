@@ -104,7 +104,7 @@
     ./appimage.nix
 
     # udev rules
-    ./udev.nix
+    ./udev
 
     # localsend
     ./localsend.nix
